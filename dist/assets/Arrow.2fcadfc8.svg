@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 100px;
+        fill: #fff;
+        font-family: Bahnschrift;
+      }
+    </style>
+  </defs>
+  <text id="_" data-name="&gt;" class="cls-1" transform="translate(5.712 358.299) scale(6.397)">&gt;</text>
+</svg>
