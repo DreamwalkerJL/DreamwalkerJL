@@ -19,7 +19,6 @@ export function Stars(props) {
     ref.current.rotation.x -= delta / 72;
     ref.current.rotation.y -= delta / 108;
   });
-  console.log(pointsRef);
   return (
     <group rotation={[0, 0, Math.PI / 4]} position={[0, -10, 100]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>

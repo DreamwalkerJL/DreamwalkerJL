@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <div className="absolute h-full w-full  ">
-        <Page1 />
+        {/* <Page1 /> */}
 
         <Page2 />
 

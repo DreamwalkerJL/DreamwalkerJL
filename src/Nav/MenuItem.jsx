@@ -30,7 +30,6 @@ export const MenuItem = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
 
   const lottieRef = React.useRef();
-  console.log(lottieRef);
 
   const defaultOptions = {
     loop: true,

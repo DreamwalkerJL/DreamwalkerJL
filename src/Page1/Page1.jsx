@@ -4,6 +4,7 @@ import {
   Cloud,
   Environment,
   Float,
+  Html,
   OrbitControls,
   PerspectiveCamera,
   Stats,
@@ -14,7 +15,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Select, Selection } from '@react-three/postprocessing';
 import { Depth, Fresnel, LayerMaterial } from 'lamina';
 import { useControls } from 'leva';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 import { Moon } from '../3D/Moon';
@@ -23,7 +24,7 @@ import MoonAlpha from '../Images/Moon.png';
 import { Effects } from './Effects';
 import { Stars } from './Stars';
 import { TextDW } from './TextDW';
-import Trailer from './Trail';
+import Trailer from './Trail2';
 export default function Page1() {
   function Moon2() {
     const [colorMap, alpha] = useLoader(THREE.TextureLoader, [Checker, MoonAlpha]);
@@ -116,12 +117,13 @@ export default function Page1() {
   return (
     <div className="absolute, h-[110%] w-full CanvasClipTop">
       <Canvas>
-        {/* <Stats/> */}
-        <MainCamera />
-        <ambientLight />
-        {/* <OrbitControls /> */}
-        <Selection>
+        <Suspense fallback={<Html center>Loading.</Html>}>
+          {/* <Stats/> */}
+          <MainCamera />
+          <ambientLight />
+          {/* <OrbitControls /> */}
           <Stars />
+          <Stats />
           <group>
             // Clouds
             <Float
@@ -153,21 +155,15 @@ export default function Page1() {
               />
             </Float>
           </group>
-
           <Trailer />
-
-          <Select enabled>
-            <Moon />
-
-            <Effects />
-          </Select>
-
+          <Moon />
+          {/* <Effects /> */}
           <Text font={'Namita.otf'} fontSize={6.180469715698393} position={[0, -45, 0]}>
             by Joshua Lim
           </Text>
           <TextDW />
           <EnvLamia />
-        </Selection>
+        </Suspense>
       </Canvas>
     </div>
   );
