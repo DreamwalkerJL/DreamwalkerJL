@@ -18,7 +18,8 @@ import {
   Text,
   useHelper,
   useTexture,
-  useMatcapTexture
+  useMatcapTexture,
+  usePerformanceMonitor,
 } from '@react-three/drei';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { Depth, Fresnel, LayerMaterial } from 'lamina';
@@ -36,11 +37,10 @@ import Podium from './Podium';
 import Stars from './Stars2';
 import Arrow from '../Images/Arrow.svg';
 import { Selection, Select } from '@react-three/postprocessing';
+import round from 'lodash/round';
+import Page1 from '../Page1/Page1'
 
 export default function Page2() {
-
-
-
   function EnvLamia() {
     const ref = useRef();
     const { gradient } = useControls({ gradient: { value: 0.7, min: 0, max: 1 } });
@@ -56,7 +56,6 @@ export default function Page2() {
     return (
       <Environment background frames={Infinity}>
         <mesh scale={1000} rotation={[0, -0.3, 0]}>
-        
           <sphereGeometry args={[1, 64, 64]} />
           <LayerMaterial // Depth
             ref={ref}
@@ -280,56 +279,45 @@ export default function Page2() {
 
   const [hovered, hover] = useState(null);
 
-
-
-  function Adaptive () {
-    const current = useThree(state => state.performance)
-    // useFrame((state)=> {
-    //   state.performance.current = .3
-    // })
-    return console.log(current)
-  }
-
   function Floor() {
     const [matcap2] = useMatcapTexture('161B1F_C7E0EC_90A5B3_7B8C9B');
 
     return (
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.491, 0]}>
-      {' '}
-      //Floor
-      <planeGeometry args={[30, 15]} />
-      {/* <meshMatcapMaterial matcap={matcap2}/> */}
-      <MeshReflectorMaterial 
-          blur={[0, 0]} // Blur ground reflections (width, heigt), 0 skips blur
-          mixBlur={0} // How much blur mixes with surface roughness (default = 1)
-          mixStrength={1} // Strength of the reflections
-          mixContrast={1} // Contrast of the reflections
-          resolution={2000} // Off-buffer resolution, lower=faster, higher=better quality, slower
-          mirror={1} // Mirror environment, 0 = texture colors, 1 = pick up env colors
-          depthScale={0} // Scale the depth factor (0 = no depth, default = 0)
-
-       
-
-      />
-    </mesh>
-    )
+        {' '}
+        //Floor
+        <planeGeometry args={[30, 15]} />
+        <meshMatcapMaterial matcap={matcap2} />
+      </mesh>
+    );
   }
 
+  const [dpr, setDpr] = useState(2);
 
+  console.log(dpr);
 
+  const [fp, fpSet] = useState()
+  console.log(fp);
   return (
     <div className="relative  h-[130%] w-full CanvasClipMiddle">
       <Canvas
         performance={{
-          current: .3,
-          min: .1,
-       
+          current: 0.3,
+          min: 0.1,
         }}
       >
+        <PerformanceMonitor
+        fps={90}
+          bounds={({refreshrate}) => (refreshrate > 90 ? [60, 90] : [50, 60])}
+          // onChange={({factor})=>fpSet(factor)}
+          iterations={3}
+         factor={.5}
+          onChange={({ factor }) => setDpr(round(0.5 + 1.5 * factor, 1))}
+        ></PerformanceMonitor>
         {/* <Adaptive/>
         <AdaptiveDpr pixelated />
         <AdaptiveEvents /> */}
-   
+
         <Suspense fallback={<Html center>Loading.</Html>}>
           <Stats />
           {/* <color attach="background" args={[bg]} /> */}
@@ -349,16 +337,15 @@ export default function Page2() {
           />
         </Backdrop> */}
           <MainCamera />
-          <ambientLight intensity={7}/>
+          <ambientLight intensity={7} />
 
-          {/* <Stars/> */}
-          <Floor/>
+          <Stars />
+          <Floor />
           {/* <Effects /> */}
 
           <Char choicePos={choicePos} />
           <Coding choicePos={choicePos} />
-          <Brush choicePos={choicePos} />
-
+          {/* <Brush choicePos={choicePos} /> */}
 
           <fog attach="fog" args={['#140a1f', 1, 15]} />
           <Arrows />

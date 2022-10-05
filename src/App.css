@@ -123,3 +123,13 @@ li {
 .CanvasClipMiddle {
   -webkit-clip-path: polygon(0 6.5%, 100% 0%, 100% 100%, 0 92%);
 }
+
+.part2 {
+  position: relative;
+  flex-direction: row;
+
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 100%);
+  width: 100vw;
+  height: 250vh;
+}
+

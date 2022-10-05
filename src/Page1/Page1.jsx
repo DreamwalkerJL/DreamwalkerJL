@@ -118,51 +118,10 @@ export default function Page1() {
     <div className="absolute, h-[110%] w-full CanvasClipTop">
       <Canvas>
         <Suspense fallback={<Html center>Loading.</Html>}>
-          {/* <Stats/> */}
-          <MainCamera />
-          <ambientLight />
-          {/* <OrbitControls /> */}
-          <Stars />
-          <Stats />
-          <group>
-            // Clouds
-            <Float
-              speed={1} // Animation speed, defaults to 1
-              rotationIntensity={0} // XYZ rotation intensity, defaults to 1
-              floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-              floatingRange={[1, 6]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-            >
-              <Cloud
-                speed={-0.01}
-                segments={80}
-                width={20}
-                depth={1}
-                position={[10, -25, 0]}
-              />
-            </Float>
-            <Float
-              speed={1} // Animation speed, defaults to 1
-              rotationIntensity={0} // XYZ rotation intensity, defaults to 1
-              floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-              floatingRange={[1, 6]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-            >
-              <Cloud
-                speed={-0.01}
-                segments={80}
-                width={20}
-                depth={1}
-                position={[-10, -25, 0]}
-              />
-            </Float>
-          </group>
-          <Trailer />
-          <Moon />
-          {/* <Effects /> */}
-          <Text font={'Namita.otf'} fontSize={6.180469715698393} position={[0, -45, 0]}>
-            by Joshua Lim
-          </Text>
-          <TextDW />
+        <Stats/>
+
           <EnvLamia />
+
         </Suspense>
       </Canvas>
     </div>

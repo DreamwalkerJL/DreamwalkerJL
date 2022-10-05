@@ -39,7 +39,6 @@ export const MenuItem = ({ i }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
-
   const Icons = [
     <Lottie options={defaultOptions} height={50} width={50} ref={lottieRef} />,
   ];

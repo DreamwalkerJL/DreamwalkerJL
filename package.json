@@ -17,6 +17,7 @@
   "dependencies": {
     "@cypress/react": "^6.2.0",
     "@cypress/vite-dev-server": "^3.1.1",
+    "@dotlottie/player-component": "^1.1.1",
     "@emotion/react": "^11.10.4",
     "@react-three/cannon": "^6.4.0",
     "@react-three/drei": "^9.29.1",
@@ -41,8 +42,10 @@
     "react-lottie": "^1.2.3",
     "react-responsive": "^9.0.0-beta.10",
     "react-three-gui": "^0.4.2",
+    "react-use-refs": "^1.0.1",
     "stats.js": "^0.17.0",
     "styled-components": "^5.3.5",
+    "tailwindcss": "^3.1.8",
     "three": "^0.144.0",
     "three.meshline": "^1.4.0",
     "vite-plugin-html": "^3.2.0"
@@ -73,7 +76,6 @@
     "postcss": "^8.4.16",
     "pre-commit": "^1.2.2",
     "prettier": "^2.7.1",
-    "tailwindcss": "^3.1.8",
     "twin.macro": "^2.8.2",
     "typescript": "^4.8.3",
     "vite": "^3.1.0",

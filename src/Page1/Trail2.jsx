@@ -18,6 +18,7 @@ export default function Trailer() {
   extend(meshline);
   const [colorMap, alpha] = useLoader(THREE.TextureLoader, [Checker, MoonAlpha]);
   const boxRef = useRef();
+  const trailRef = useRef();
   // useFrame(()=> boxRef.current.position.x += 0.1)
 
   const { viewport } = useThree();
@@ -39,16 +40,18 @@ export default function Trailer() {
   //     }
   //   },
   //   [setX, setY]
-  // )
-
-  const mouseMovement = new MouseMovement();
 
   let mouseMovementCallback = function () {
     // console.log(mouseMovement.speedX);
     // console.log(mouseMovement.speedY);
   };
   mouseMovement.init({ mousemoveCallback: mouseMovementCallback });
-  const trailRef = useRef();
+
+  // )
+
+
+
+  const mouseMovement = new MouseMovement();
 
   const ref = useRef();
   useFrame(({ mouse }) => {
