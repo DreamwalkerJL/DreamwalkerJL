@@ -54,7 +54,7 @@ function App() {
           <Part1 />
         </div>
 
-        <div class="part2">
+        <div className="part2BG">
           <Part2  />
         </div>
         <div className="bg-black relative h-full w-full"></div>
