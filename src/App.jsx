@@ -54,7 +54,7 @@ function App() {
           <Part1 />
         </div>
 
-        <div className="part2BG">
+        <div className="part2BG relative top-[1px] flex flex-row overflow-hidden w-[100] h-auto py-28">
           <Part2  />
         </div>
         <div className="bg-black relative h-full w-full"></div>

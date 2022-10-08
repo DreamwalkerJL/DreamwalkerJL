@@ -17,7 +17,7 @@ import 'tippy.js/dist/backdrop.css';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/themes/material.css';
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 export default function () {
   const WW = window.innerWidth;
   const size = {
@@ -79,7 +79,7 @@ export default function () {
         // variants={titleVar}
         // viewport={{ once: true, margin: '0px 0px -500px 0px' }}
         // ref={motionRef}
-        className="relative flex h-1/4 w-full justify-center"
+        className="relative flex h-[30vh] w-full justify-center"
       >
         <Player
           src={SkillsTitle}
@@ -137,6 +137,7 @@ export default function () {
         </>
       );
     }
+    
     function Coding() {
       const lottieRef2 = useRef();
 
@@ -164,6 +165,7 @@ export default function () {
         </>
       );
     }
+
     function Design() {
       const lottieRef3 = useRef();
 
@@ -200,63 +202,168 @@ export default function () {
     //     <div onClick={handle.exit} className='w-full h-full'>{handle.active && <p className='text-white'>HELLOOOOOOOOOOOOOOO</p>}</div>
     //   </FullScreen></>
     // }
-    function D3Pic() {
-      const handle = useFullScreenHandle();
-      const imgRef = useRef();
-      const tippyRef = useRef();
-      console.log(tippyRef);
-      const [interactiveState, interactiveStateSet] = useState(false)
-      let stater = false
+    function DesignPic() {
+      const [interactiveState, interactiveStateSet] = useState(false);
       return (
         <>
           <Tippy
             placement="top"
             offset={[0, -300]}
-            trigger="mouseenter click "
-            ref={tippyRef}
+            trigger="click"
             maxWidth="700"
             animation="scale"
             theme="material"
-            onShow={()=> interactiveStateSet(true)}
-            popperOptions={{ modifiers: [{ name: 'flip', enabled: false }]}}
+            onShow={() => interactiveStateSet(true)}
+            popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
             interactive={interactiveState}
-            
             content={
               <div className="bg-neutral-900 px-2 text-white ">
-                <p className="text-center text-4xl md:text-6xl">3D</p>
+                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                  Design
+                </p>
                 <br />
-                <div className="break-words text-start text-lg md:text-4xl">
-                <p >
-                  From 2020 till 2022, I've teached myself through various videos
-                  and blogs, on how to work with 3D.
-                </p>
-                <br/>
-                <br/>
-                <p>
-                  My End goal was to be able to create a fairly realistic Character. In my latest project, I was able to create that Character. 
-                </p>
-                <br/>
-                <br/>
-                <a href="https://www.artstation.com/artwork/28Q93e" target="_blank" rel="noreferrer" className='text-sky-500'>
-          Check it out on Artstation.com
-        </a>
-        <br/>
-        <br/>
-        <p className='text-base md:text-3xl text-right text-neutral-400'>
-                Click outside of this box to close it
-                </p>
-        </div>
+                <div className="break-words text-start text-lg md:text-4xl  ">
+                  <p>
+                    At around 2015 I've started setting foot in to Graphical Design with
+                    Photoshop. Since then it has been by far my most used Software.
+                  </p>
+                  <br />
+                  <p>
+                    During 2018 I've learned about Video editing with After Effects and
+                    Premiere Pro. It was a very enjoyable editing multiple Frames instead
+                    the usual one for a picture.
+                  </p>
+                  <br />
+                  <p>
+                    In 2019 startet an Internship as a Graphic Designer in the TV
+                    Industry.
+                  </p>
+
+                  <p className="text-right text-base text-neutral-400 md:text-3xl">
+                    Click outside of this box to exit
+                  </p>
+                </div>
               </div>
             }
           >
-            <img src={SkillFrame3DPic} ref={imgRef} />
+            <img src={SkillFrameDesignPic} className='w-[95vw]'/>
+          </Tippy>
+        </>
+      );
+    }
+
+    function D3Pic() {
+      const [interactiveState, interactiveStateSet] = useState(false);
+      return (
+        <>
+          <Tippy
+            placement="top"
+            offset={[0, -300]}
+            trigger="click"
+            maxWidth="700"
+            animation="scale"
+            theme="material"
+            onShow={() => interactiveStateSet(true)}
+            popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
+            interactive={interactiveState}
+            content={
+              <div className="bg-neutral-900 px-2 text-white ">
+                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                  3D
+                </p>
+                <br />
+                <div className="break-words text-start text-lg md:text-4xl  ">
+                  <p>
+                    From 2020 till 2022, I've teached myself through videos and blogs, on
+                    how to work with various 3D Softwares.
+                  </p>
+                  <br />
+                  <p>
+                    My End goal was, to be able to create a fairly realistic Character, which is animatable through a propper Rig. In
+                    my latest project, I was able to create that Character.
+                  </p>
+                  <br />
+                  <a
+                    href="https://www.artstation.com/dreamwalkerworld"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sky-500"
+                  >
+                    Check out my 3D Collection on Artstation.com
+                  </a>
+                  <p className="text-right text-base text-neutral-400 md:text-3xl">
+                    Click outside of this box to exit
+                  </p>
+                </div>
+              </div>
+            }
+          >
+            <img src={SkillFrame3DPic} className='w-[95vw]'/>
+          </Tippy>
+        </>
+      );
+    }
+
+    function CodingPic() {
+      const [interactiveState, interactiveStateSet] = useState(false);
+      return (
+        <>
+          <Tippy
+            placement="top"
+            offset={[0, -300]}
+            trigger="click"
+            maxWidth="700"
+            animation="scale"
+            theme="material"
+            onShow={() => interactiveStateSet(true)}
+            popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
+            interactive={interactiveState}
+            content={
+              <div className="bg-neutral-900 px-2 text-white ">
+                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                  Coding
+                </p>
+                <br />
+                <div className="break-words text-start text-lg md:text-4xl  ">
+                  <p>
+                    In 2020 I've tried a bit of HTML and CSS, to build my own website.
+                    
+                  </p>
+                  <br />
+                  <p>
+                  When 2022 started, I wanted to take Coding a bit more serious, to see where it could take me. I refreshed my HTML & CSS and teached myself JS.
+                  I was not really amazed by coding at that point. But my passion towards coding definitely changed, when I started using React.
+                  </p>
+                  <br />
+                  <p>
+                    React really made me starting to enjoy coding and simply learning new stuff on another gear. I also picked up ThreeJS, since I already have vast 3D knowledge.
+                  </p>
+                  <p className="text-right text-base text-neutral-400 md:text-3xl">
+                    Click outside of this box to exit
+                  </p>
+                </div>
+              </div>
+            }
+          >
+            <img src={SkillFrameCodingPic} className='w-[95vw]'/>
           </Tippy>
         </>
       );
     }
 
     return (
-      <div className="relative h-full w-full">
+      <div className="relative flex-1 space-y-[8vh] w-full">
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          variants={FrameVar}
+          viewport={{ once: true, margin: '0px 0px -200px 0px' }}
+          ref={motionRef}
+          className="relative flex h-full w-full justify-center"
+        >
+          {isMort && <DesignPic />}
+          {BPlg && <Design />}
+        </motion.div>
         <motion.div
           initial="offscreen"
           whileInView="onscreen"
@@ -276,19 +383,8 @@ export default function () {
           ref={motionRef}
           className="relative flex h-full w-full justify-center"
         >
-          {isMort && <img src={SkillFrameCodingPic} />}
+          {isMort && <CodingPic />}
           {BPlg && <Coding />}
-        </motion.div>
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          variants={FrameVar}
-          viewport={{ once: true, margin: '0px 0px -200px 0px' }}
-          ref={motionRef}
-          className="relative flex h-full w-full justify-center"
-        >
-          {isMort && <img src={SkillFrameDesignPic} />}
-          {BPlg && <Design />}
         </motion.div>
         {/* <img src={SkillFrameCodingPic} height={250} width={200}/>
           <img src={SkillFrameCodingPic} height={250} width={200}/> */}
@@ -297,11 +393,9 @@ export default function () {
     );
   }
 
-
   return (
-    <div className="relative h-full w-full" ref={divRef}>
+    <div className="relative flex-1 w-full" ref={divRef}>
       <Title />
-
 
       <Frame />
     </div>

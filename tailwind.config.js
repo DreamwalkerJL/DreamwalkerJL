@@ -15,6 +15,9 @@ module.exports = {
     fontFamily: {
       Namita: ['Namita', 'Helvetica', 'Arial', 'sans-serif'],
       Momo: ['Momo', 'Helvetica', 'Arial', 'sans-serif'],
+      MandatoryPlaything: ['MandatoryPlaything', 'Helvetica', 'Arial', 'sans-serif'],
+      Raskhal: ['Raskhal', 'Helvetica', 'Arial', 'sans-serif'],
+      CabinCondensed: ['CabinCondensed', 'Helvetica', 'Arial', 'sans-serif'],
     },
     extend: {
       brightRed: 'hsl(12, 88%, 59%)',
