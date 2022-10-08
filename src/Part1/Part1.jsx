@@ -18,14 +18,16 @@ import * as THREE from 'three';
 import Char90 from './Char90';
 
 import { Screen5 } from './Screen5';
-import Lottie from 'react-lottie';
 import Title1 from '../Images/Title 11.json';
 import TitlePic from '../Images/Title1.png'
 import Effects from './Effects';
 import HUD from './HUD';
 import { useScroll } from 'framer-motion';
-
+import { useMediaQuery } from 'react-responsive';
 export default function Part1() {
+  const isMort = useMediaQuery({
+    query: '(max-width: 976px)',
+  });
   function EnvLamia() {
     const ref = useRef();
     const { gradient } = useControls({ gradient: { value: 0.7, min: 0, max: 1 } });
@@ -149,16 +151,18 @@ const imgRef = useRef()
 useFrame(()=> {
 imgRef.current.material.opacity < 1 && (imgRef.current.material.opacity += 0.01)
 })
+function imgSize() {
+ return isMort ? [2.5,1.25,1] : [2,1,1] 
+}
     return (
       <group>
         <Plane args={[0.4, 0.3]} visible={false} position={[0, 0, -1.2]}>
           <Html center position={[0, 0, -2]} scale={0.015} className="pointer-events-none">
             {/* <Lottie options={defaultOptions2} height={720} width={1500} ref={lottieRef} isStopped={true}/> */}
-            
           </Html>
           <meshBasicMaterial visible={false} />
         </Plane>
-        <Image ref={imgRef} scale={[2,1,1]} position={[0,0,-.5]} url={TitlePic} transparent opacity={0}/>
+        <Image ref={imgRef} scale={imgSize()} position={[0,0,-.5]} url={TitlePic} transparent opacity={0}/>
       </group>
     );
   }

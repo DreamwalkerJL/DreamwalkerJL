@@ -8,10 +8,15 @@ import Lottie from 'react-lottie';
 import Title1 from '../Images/Title 11.json';
 import HUDMainPic from '../Images/HUDMain.png'
 import { useScroll } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 export default function HUD() {
 
     function Rig() {
-      const sm = 480
+
+      const BPlg = useMediaQuery({
+        query: '(min-width: 976px)',
+      });
+      const lg = 976
       const WW = window.innerWidth
 
         const [vec] = useState(() => new THREE.Vector3());
@@ -35,13 +40,13 @@ export default function HUD() {
           const lol = 50
         useFrame(({ mouse, delta, clock }) => {
           
-          scrollYProgress.current === 0 && WW > sm ? camera.position.lerp(vec.set(mouse.x * .1, mouse.y * .1, 3), 0.01) :  camera.position.lerp(vec.set(0,0,6), 0.01)
-          scrollYProgress.current === 0 && WW > sm ? camera.rotation.set(mouse.y *.1, -mouse.x *.2, 0) : camera.rotation.set(0,0,0)
+          scrollYProgress.current === 0 && BPlg ? camera.position.lerp(vec.set(mouse.x * .1, mouse.y * .1, 3), 0.01) :  camera.position.lerp(vec.set(0,0,6), 0.01)
+          scrollYProgress.current === 0 && BPlg ? camera.rotation.set(mouse.y *.1, -mouse.x *.2, 0) : camera.rotation.set(0,0,0)
           planeRef.current.position.copy(camera.position);
           planeRef.current.quaternion.copy(camera.quaternion);
           planeRef.current.translateZ(-2);
           // clock.elapsedTime > 2 && (lottieRef.current.anim.isStopped = true)
-          imgRef.current.material.opacity < 1 && clock.elapsedTime > 3 && scrollYProgress.current === 0 &&  WW > sm && (imgRef.current.material.opacity += 0.03)
+          imgRef.current.material.opacity < 1 && clock.elapsedTime > 3 && scrollYProgress.current === 0 &&  BPlg && (imgRef.current.material.opacity += 0.03)
           scrollYProgress.current > 0 && imgRef.current.material.opacity > 0.001 && (imgRef.current.material.opacity -= 0.02 )
       
         });

@@ -11,6 +11,8 @@ module.exports = {
     },
     backgroundImage: {
       Nav: "url('./Images/Nav.png')",
+      D3BG: "url('./Images/SkillFrame3DBG.png')",
+      CodingBG: "url('./Images/SkillFrameCodingBG.png')",
     },
     fontFamily: {
       Namita: ['Namita', 'Helvetica', 'Arial', 'sans-serif'],

@@ -29,7 +29,7 @@
 }
 
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -137,23 +137,55 @@ li {
 }
 
 .part2BG {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(30, 30, 30, 1) 100%);
 }
 
-@layer components {}
-  .skillsTitle {
-    position: relative;
-    font-size: 1rem;
-    color: white;
+@layer components {
+}
 
-  }
-  .skillsText {
-    position: relative;
-    font-size: 1rem;
-    color: white;
- 
-  }
+.containerR {
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-template-rows: 10% 90% ;
+  gap: 0px 0px;
+  grid-template-areas:
+    'Player skillsTitle .'
+    'Player skillsText .'
+    '. . .';
+}
 
-  .fullscreen-enabled  {
-    background: rgb(211, 45, 45);
-  }
+.containerL {
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-template-rows: 10% 90% ;
+  gap: 0px 0px;
+  grid-template-areas:
+    'skillsTitle Player.'
+    'skillsText Player .'
+    '. . .';
+}
+
+.skillsTitle {
+  position: relative;
+  color: white;
+  text-align: start;
+  font-size: 6vw;
+  grid-area: skillsTitle;
+}
+.skillsText {
+  position: relative;
+  color: white;
+  text-align: start;
+  font-size: 2vw;
+  grid-area: skillsText;
+  margin-top: 5vh;
+
+}
+
+.skillsPlayer {
+  grid-area: skillsPlayer;
+}
+
+.fullscreen-enabled {
+  background: rgb(211, 45, 45);
+}
