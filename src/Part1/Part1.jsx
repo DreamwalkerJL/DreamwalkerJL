@@ -13,13 +13,13 @@ import {
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Depth, Fresnel, LayerMaterial } from 'lamina';
 import { useControls } from 'leva';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import Char90 from './Char90';
 
 import { Screen5 } from './Screen5';
 import Title1 from '../Images/Title 11.json';
-import TitlePic from '../Images/Title1.png'
+import TitlePic from '../Images/Title1.png';
 import Effects from './Effects';
 import HUD from './HUD';
 import { useScroll } from 'framer-motion';
@@ -136,33 +136,45 @@ export default function Part1() {
       loop: false,
       autoplay: true,
       animationData: Title1,
-   
+
       rendererSettings: {
         preserveAspectRatio: 'xMidYMid slice',
       },
     };
-// useFrame(()=> {
-//   scrollYProgress.current === 0 ? lottieRef.current.anim.isPaused = false : lottieRef.current.anim.isPaused = true
-// })
+    // useFrame(()=> {
+    //   scrollYProgress.current === 0 ? lottieRef.current.anim.isPaused = false : lottieRef.current.anim.isPaused = true
+    // })
     const lottieRef = useRef();
 
-const imgRef = useRef()
+    const imgRef = useRef();
 
-useFrame(()=> {
-imgRef.current.material.opacity < 1 && (imgRef.current.material.opacity += 0.01)
-})
-function imgSize() {
- return isMort ? [2.5,1.25,1] : [2,1,1] 
-}
+    useFrame(() => {
+      imgRef.current.material.opacity < 1 && (imgRef.current.material.opacity += 0.01);
+    });
+    function imgSize() {
+      return isMort ? [2.5, 1.25, 1] : [2, 1, 1];
+    }
     return (
       <group>
         <Plane args={[0.4, 0.3]} visible={false} position={[0, 0, -1.2]}>
-          <Html center position={[0, 0, -2]} scale={0.015} className="pointer-events-none">
+          <Html
+            center
+            position={[0, 0, -2]}
+            scale={0.015}
+            className="pointer-events-none"
+          >
             {/* <Lottie options={defaultOptions2} height={720} width={1500} ref={lottieRef} isStopped={true}/> */}
           </Html>
           <meshBasicMaterial visible={false} />
         </Plane>
-        <Image ref={imgRef} scale={imgSize()} position={[0,0,-.5]} url={TitlePic} transparent opacity={0}/>
+        <Image
+          ref={imgRef}
+          scale={imgSize()}
+          position={[0, 0, -0.5]}
+          url={TitlePic}
+          transparent
+          opacity={0}
+        />
       </group>
     );
   }
@@ -179,38 +191,38 @@ function imgSize() {
       </group>
     );
   }
-  const divRef = useRef()
-  const canvasRef = useRef()
+  const divRef = useRef();
+  const canvasRef = useRef();
 
-  const {scrollYProgress} = useScroll({
+  const { scrollYProgress } = useScroll({
     target: divRef,
-    offset: ["end end", "end start"]
-  })
-  const [dpr, dprSet] = useState(0.1)
+    offset: ['end end', 'end start'],
+  });
+  const [dpr, dprSet] = useState(0.1);
   function CanvasDPR() {
-    useFrame(()=> {
-      scrollYProgress.current > .99 ? dprSet(0.01) : dprSet(1) 
-      
-    })
+    useFrame(() => {
+      scrollYProgress.current > 0.99 ? dprSet(0.01) : dprSet(1);
+    });
   }
 
-
   return (
-    <div ref={divRef} className=' w-full h-full'>
-      <Canvas  dpr={dpr} camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
-        <Stats />
-        <CanvasDPR/>
-        {/* <Char90/> */}
-        <ambientLight intensity={0.5} />
-        {/* <OrbitControls/> */}
-        <HUD />
-        <Title/>
-        <color attach="background" args={['#000000']} />
-        {/* <CyberBackground3/> */}
-        {/* <EnvLamia/> */}
-        <BGEdge />
-        {/* <Effects/> */}
-        <Screen5 />
+    <div ref={divRef} className=" h-full w-full">
+      <Canvas dpr={dpr} camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
+        <Suspense fallback={()=> console.log('error')}>
+          <Stats />
+          <CanvasDPR />
+          {/* <Char90/> */}
+          <ambientLight intensity={0.5} />
+          {/* <OrbitControls/> */}
+          <HUD />
+          <Title />
+          <color attach="background" args={['#000000']} />
+          {/* <CyberBackground3/> */}
+          {/* <EnvLamia/> */}
+          <BGEdge />
+          {/* <Effects/> */}
+          <Screen5 />
+        </Suspense>
       </Canvas>
     </div>
   );

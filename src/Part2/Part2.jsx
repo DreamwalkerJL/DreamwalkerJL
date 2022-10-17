@@ -17,7 +17,12 @@ import 'tippy.js/dist/backdrop.css';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/themes/material.css';
+import D3Prev1 from '../Images/GalleryPrev/1.jpg'
+import D3Prev2 from '../Images/GalleryPrev/2.jpg'
+import D3Prev3 from '../Images/GalleryPrev/3.jpg'
+import D3Prev4 from '../Images/GalleryPrev/4.jpg'
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import tw from 'twin.macro';
 export default function () {
   const WW = window.innerWidth;
   const size = {
@@ -58,11 +63,11 @@ export default function () {
     }, []);
 
     return (
-      <div className="relative flex h-[30vh] w-full justify-center  lg:bottom-[10vh] lg:h-[80vh] ">
+      <div className="relative flex h-auto  w-full justify-center  lg:bottom-[8vw] lg:h-[12.5vw] lg:mt-[5vw] lg:mb-[5vw] ">
         <Player
           src={SkillsTitle}
           speed={1.5}
-          className="relative h-full w-full "
+          className="relative h-[20vw] w-[50vw]"
           ref={lottieRef}
           keepLastFrame
         />
@@ -89,7 +94,7 @@ export default function () {
     };
 
     function Design() {
-      const lottieRef3 = useRef();
+      const lottieRef = useRef();
       const divRef = useRef();
       const { scrollYProgress } = useScroll({
         target: divRef,
@@ -98,25 +103,43 @@ export default function () {
 
       useEffect(() => {
         scrollYProgress.onChange((latest) => {
-          lottieRef3.current && latest > 0.1 && lottieRef3.current.play();
+          lottieRef.current && latest > 0.1 && lottieRef.current.play();
         });
       }, []);
 
+      const [lastFrame, lastFrameSet] = useState(true);
+
+      function lottieRepeat() {
+        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        async function play() {
+          lastFrameSet(false);
+
+          lottieRef.current.play();
+          await delay(100);
+          lottieRef.current.play();
+          await delay(100);
+          lastFrameSet(true);
+        }
+        return play();
+      }
+
       return (
-        <div className="containerR relative h-[42vw] w-[100vw] bg-red-400  " ref={divRef}>
-          <Player
-            src={SkillFrameDesign}
-            speed={0.5}
-            className="skillsPlayer relative w-[40vw]"
-            ref={lottieRef3}
-            keepLastFrame
-          />
-          <motion.p className="skillsTitle  font-MandatoryPlaything " variants={FrameVar}>
-            Design
+        <div className="containerR relative h-[30.5vw] w-[80vw] bg-red-400  " ref={divRef}>
+          <div onClick={lottieRepeat} className="cursor-pointer">
+            <Player
+              src={SkillFrameDesign}
+              speed={0.5}
+              className="skillsPlayer relative w-[30vw]"
+              ref={lottieRef}
+              keepLastFrame={lastFrame}
+            />
+          </div>
+          <motion.p className="skillsTitle  font-Iceland " variants={FrameVar}>
+            DESIGN
           </motion.p>
-          <motion.p className="skillsText " variants={FrameVar}>
+          <motion.div className="skillsText " variants={FrameVar}>
             <div>
-              <div className="break-words mr-[2vw] ">
+              <div className="mr-[2vw] break-words ">
                 <p>
                   At around 2015 I've started setting foot in to Graphical Design with
                   Photoshop. Since then it has been by far my most used Software.
@@ -133,13 +156,13 @@ export default function () {
                 </p>
               </div>
             </div>
-          </motion.p>
+          </motion.div>
         </div>
       );
     }
 
     function D3() {
-      const lottieRef1 = useRef();
+      const lottieRef = useRef();
       const divRef = useRef();
       const { scrollYProgress } = useScroll({
         target: divRef,
@@ -147,51 +170,80 @@ export default function () {
       });
       useEffect(() => {
         scrollYProgress.onChange((latest) => {
-          lottieRef1.current && latest > 0.1 && lottieRef1.current.play();
+          lottieRef.current && latest > 0.1 && lottieRef.current.play();
         });
       }, []);
 
+      const [lastFrame, lastFrameSet] = useState(true);
+
+      function lottieRepeat() {
+        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        async function play() {
+          lastFrameSet(false);
+
+          lottieRef.current.play();
+          await delay(100);
+          lottieRef.current.play();
+          await delay(100);
+          lastFrameSet(true);
+        }
+        return play();
+      }
+
       return (
-        <div className=" containerL relative h-[42vw] w-[90vw] border-[.5vw] border-gray-white bg-D3BG bg-cover" ref={divRef}>
-          <Player
-            src={SkillFrame3D}
-            speed={0.5}
-            className="skillsPlayer relative w-[34vw] left-[2.5vw]"
-            ref={lottieRef1}
-            keepLastFrame
-          />
-          <motion.p className="skillsTitle font-MandatoryPlaything left-[2vw]" variants={FrameVar}>
-            <div className="text-end ">3D</div>
-          </motion.p>
-          <motion.p className="skillsText text-end left-[2vw]" variants={FrameVar}>
+        <div
+          className=" containerL border-gray-white relative h-[38vw] w-[80vw] border-[.5vw] bg-D3BG bg-cover"
+          ref={divRef}
+        >
+          <div onClick={lottieRepeat} className="cursor-pointer">
+            <Player
+              src={SkillFrame3D}
+              speed={0.5}
+              className="skillsPlayer relative left-[2vw] w-[30vw] pt-[.75vw]"
+              ref={lottieRef}
+              keepLastFrame={lastFrame}
+            />
+          </div>
+          <motion.div
+            className="skillsTitle left-[2vw] font-Iceland font-bold"
+            variants={FrameVar}
+          >
+            <p className="text-end ">3D</p>
+          </motion.div>
+          <motion.div className="skillsText left-[2vw] text-end" variants={FrameVar}>
             <div className="break-words text-end">
               <p>
                 From 2020 till 2022, I've teached myself through videos and blogs, on how
-                to work with various 3D Softwares.
+                to work with various 3D Softwares. 
               </p>
-              <br />
-              <p>
+           
+              <p className='relative top-[1vw]'>
                 My End goal was, to be able to create a fairly realistic Character, which
                 is animatable through a propper Rig. In my latest project, I was able to
                 create that Character.
               </p>
               <br />
-              <a
-                href="https://www.artstation.com/dreamwalkerworld"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sky-500"
+              <Link
+                to='/gallery'
+               
+                className="text-sky-500 text-[2vw]"
               >
-                Check out my 3D Collection on Artstation.com
-              </a>
+                Check out my 3D Gallery
+              </Link>
+              <div className='flex flex-row gap-[1vw] relative top-[1vw]'>
+              <img className='relative w-[15vw] h-[15vw]' src={D3Prev1}/>
+              <img className='relative w-[15vw] h-[15vw]' src={D3Prev2} height={200} width={200}/>
+              <img className='relative w-[15vw] h-[15vw]' src={D3Prev3} height={200} width={200}/>
+              <img className='relative w-[15vw] h-[15vw]' src={D3Prev4} height={200} width={200}/>
+              </div>
             </div>
-          </motion.p>
+          </motion.div>
         </div>
       );
     }
 
     function Coding() {
-      const lottieRef2 = useRef();
+      const lottieRef = useRef();
       const divRef = useRef();
       const { scrollYProgress } = useScroll({
         target: divRef,
@@ -199,28 +251,49 @@ export default function () {
       });
       useEffect(() => {
         scrollYProgress.onChange((latest) => {
-          console.log(latest)
-          lottieRef2.current && latest > 0.1 && lottieRef2.current.play();
+       
+          lottieRef.current && latest > 0.1 && lottieRef.current.play();
         });
       }, []);
 
+      const [lastFrame, lastFrameSet] = useState(true);
+
+      function lottieRepeat() {
+        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        async function play() {
+          lastFrameSet(false);
+
+          lottieRef.current.play();
+          await delay(100);
+          lottieRef.current.play();
+          await delay(100);
+          lastFrameSet(true);
+        }
+        return play();
+      }
+
       return (
-        <div className="containerR relative h-[52vw] w-[90vw] bg-CodingBG bg-cover border-[.5vw] border-black" ref={divRef}>
-          <Player
-            src={SkillFrameCoding}
-            speed={0.5}
-            className="relative w-[40vw] pt-[6vh]"
-            ref={lottieRef2}
-            keepLastFrame
-          />
+        <div
+          className="containerR relative h-[34.5vw] w-[80vw] border-[.5vw] border-black bg-CodingBG bg-cover"
+          ref={divRef}
+        >
+          <div onClick={lottieRepeat} className="cursor-pointer">
+            <Player
+              src={SkillFrameCoding}
+              speed={0.5}
+              className="relative w-[30vw] pt-[1vw]"
+              ref={lottieRef}
+              keepLastFrame={lastFrame}
+            />
+          </div>
           <motion.p
-            className="skillsTitle  right-[.5vw] font-MandatoryPlaything"
+            className="skillsTitle  right-[.5vw] font-Iceland font-bold"
             variants={FrameVar}
           >
-            Coding
+            CODING
           </motion.p>
-          <motion.p className="skillsText " variants={FrameVar}>
-            <div className="break-words mr-[2vw]">
+          <motion.div className="skillsText " variants={FrameVar}>
+            <div className="mr-[2vw] break-words">
               <p>In 2020 I've tried a bit of HTML and CSS, to build my own website.</p>
               <br />
               <p>
@@ -236,19 +309,11 @@ export default function () {
                 3D knowledge.
               </p>
             </div>
-          </motion.p>
+          </motion.div>
         </div>
       );
     }
 
-    // function D3Pic() {
-    //   const handle = useFullScreenHandle();
-    //   console.log(handle)
-    //   return <><img src={SkillFrame3DPic} onClick={handle.enter} />
-    //         <FullScreen handle={handle}>
-    //     <div onClick={handle.exit} className='w-full h-full'>{handle.active && <p className='text-white'>HELLOOOOOOOOOOOOOOO</p>}</div>
-    //   </FullScreen></>
-    // }
     function DesignPic() {
       const [interactiveState, interactiveStateSet] = useState(false);
       return (
@@ -261,11 +326,12 @@ export default function () {
             animation="scale"
             theme="material"
             onShow={() => interactiveStateSet(true)}
+            onHide={() => interactiveStateSet(false)}
             popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
             interactive={interactiveState}
             content={
               <div className="bg-neutral-900 px-2 text-white ">
-                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                <p className="text-center font-Iceland text-4xl font-bold md:text-6xl">
                   Design
                 </p>
                 <br />
@@ -285,15 +351,17 @@ export default function () {
                     In 2019 startet an Internship as a Graphic Designer in the TV
                     Industry.
                   </p>
-
-                  <p className="text-right text-base text-neutral-400 md:text-3xl">
-                    Click outside of this box to exit
-                  </p>
                 </div>
               </div>
             }
           >
-            <img src={SkillFrameDesignPic} className="w-[95vw]" />
+            <div className="relative flex flex-col content-center items-center justify-center">
+              <img src={SkillFrameDesignPic} className="w-[95vw]" />
+
+              <p className="h-[15vw] w-[75vw] border-[1vw] border-pink-600 bg-zinc-800 text-center font-Iceland  text-[12vw] leading-[12vw]  text-white">
+                {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
+              </p>
+            </div>
           </Tippy>
         </>
       );
@@ -305,17 +373,18 @@ export default function () {
         <>
           <Tippy
             placement="top"
-            offset={[0, -300]}
+            offset={[0, -365]}
             trigger="click"
             maxWidth="700"
             animation="scale"
             theme="material"
             onShow={() => interactiveStateSet(true)}
+            onHide={() => interactiveStateSet(false)}
             popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
             interactive={interactiveState}
             content={
               <div className="bg-neutral-900 px-2 text-white ">
-                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                <p className="text-center font-Iceland text-4xl font-bold md:text-6xl">
                   3D
                 </p>
                 <br />
@@ -331,22 +400,17 @@ export default function () {
                     able to create that Character.
                   </p>
                   <br />
-                  <a
-                    href="https://www.artstation.com/dreamwalkerworld"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sky-500"
-                  >
-                    Check out my 3D Collection on Artstation.com
-                  </a>
-                  <p className="text-right text-base text-neutral-400 md:text-3xl">
-                    Click outside of this box to exit
-                  </p>
                 </div>
               </div>
             }
           >
-            <img src={SkillFrame3DPic} className="w-[95vw]" />
+            <div className="relative flex flex-col content-center items-center justify-center">
+              <img src={SkillFrame3DPic} className="w-[95vw]" />
+
+              <p className="h-[15vw] w-[75vw] border-[1vw] border-purple-900 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw] text-white">
+                {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
+              </p>
+            </div>
           </Tippy>
         </>
       );
@@ -355,20 +419,21 @@ export default function () {
     function CodingPic() {
       const [interactiveState, interactiveStateSet] = useState(false);
       return (
-        <>
+        <div>
           <Tippy
             placement="top"
-            offset={[0, -300]}
+            offset={[0, -325]}
             trigger="click"
             maxWidth="700"
             animation="scale"
             theme="material"
             onShow={() => interactiveStateSet(true)}
+            onHide={() => interactiveStateSet(false)}
             popperOptions={{ modifiers: [{ name: 'flip', enabled: false }] }}
             interactive={interactiveState}
             content={
               <div className="bg-neutral-900 px-2 text-white ">
-                <p className="text-center font-MandatoryPlaything text-4xl md:text-6xl">
+                <p className="text-center font-Iceland text-4xl font-bold md:text-6xl">
                   Coding
                 </p>
                 <br />
@@ -389,21 +454,24 @@ export default function () {
                     stuff on another gear. I also picked up ThreeJS, since I already have
                     vast 3D knowledge.
                   </p>
-                  <p className="text-right text-base text-neutral-400 md:text-3xl">
-                    Click outside of this box to exit
-                  </p>
                 </div>
               </div>
             }
           >
-            <img src={SkillFrameCodingPic} className="w-[95vw]" />
+            <div className="relative flex flex-col content-center items-center justify-center">
+              <img src={SkillFrameCodingPic} className="w-[95vw]" />
+
+              <p className="h-[15vw] w-[75vw] border-[1vw] border-yellow-200 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw]  text-white">
+                {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
+              </p>
+            </div>
           </Tippy>
-        </>
+        </div>
       );
     }
 
     return (
-      <div className="relative w-full flex-1 space-y-[8vh]   lg:bottom-[10vh] ">
+      <div className="relative w-full flex-1 space-y-[8vh]   lg:bottom-[10vh]">
         <motion.div
           initial="offscreen"
           whileInView="onscreen"
@@ -419,7 +487,7 @@ export default function () {
           initial="offscreen"
           whileInView="onscreen"
           variants={FrameVar}
-          viewport={{ once: true, amount: .1 }}
+          viewport={{ once: true, amount: 0.1 }}
           ref={motionRef}
           className="relative flex  w-auto justify-center"
         >

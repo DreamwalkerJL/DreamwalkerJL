@@ -12,7 +12,9 @@ import { useMediaQuery } from 'react-responsive';
 export default function HUD() {
 
     function Rig() {
-
+      const isMort = useMediaQuery({
+        query: '(max-width: 976px)',
+      });
       const BPlg = useMediaQuery({
         query: '(min-width: 976px)',
       });
@@ -39,15 +41,16 @@ export default function HUD() {
         
           const lol = 50
         useFrame(({ mouse, delta, clock }) => {
-          
+          scrollYProgress.current < 1 && isMort && camera.position.lerp(vec.set(mouse.x * 1, mouse.y * 1, 3), 0.01)
+
           scrollYProgress.current === 0 && BPlg ? camera.position.lerp(vec.set(mouse.x * .1, mouse.y * .1, 3), 0.01) :  camera.position.lerp(vec.set(0,0,6), 0.01)
           scrollYProgress.current === 0 && BPlg ? camera.rotation.set(mouse.y *.1, -mouse.x *.2, 0) : camera.rotation.set(0,0,0)
           planeRef.current.position.copy(camera.position);
           planeRef.current.quaternion.copy(camera.quaternion);
           planeRef.current.translateZ(-2);
           // clock.elapsedTime > 2 && (lottieRef.current.anim.isStopped = true)
-          imgRef.current.material.opacity < 1 && clock.elapsedTime > 3 && scrollYProgress.current === 0 &&  BPlg && (imgRef.current.material.opacity += 0.03)
-          scrollYProgress.current > 0 && imgRef.current.material.opacity > 0.001 && (imgRef.current.material.opacity -= 0.02 )
+          // imgRef.current.material.opacity < 1 && clock.elapsedTime > 3 && scrollYProgress.current === 0 &&  BPlg && (imgRef.current.material.opacity += 0.03)
+          // scrollYProgress.current > 0 && imgRef.current.material.opacity > 0.001 && (imgRef.current.material.opacity -= 0.02 )
       
         });
     return <Plane args={[1.45,4]} ref={planeRef}> <meshStandardMaterial visible={false} />
@@ -65,7 +68,7 @@ export default function HUD() {
 
 
           </Html> */}
-          <Image url={HUDMainPic} ref={imgRef} scale={[1.59,1,1]} transparent opacity={0}/>
+          {/* <Image url={HUDMainPic} ref={imgRef} scale={[1.5,.75,1]} transparent opacity={0}/> */}
 </Plane>
       }
 

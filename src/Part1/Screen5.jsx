@@ -12,6 +12,7 @@ import { useScroll } from 'framer-motion';
 import CyberVideo from '../Images/CyberBackground3.mp4'
 import { suspend } from 'suspend-react';
 import * as THREE from 'three'
+import Pictest from '../Images/Pictest.png'
 export function Screen5(props) {
   const { nodes, materials } = useGLTF('/Screen5.glb');
 const {scrollYProgress} = useScroll()
@@ -70,9 +71,7 @@ const {scrollYProgress} = useScroll()
             rotation={[Math.PI / 2, 0, -Math.PI]}
             scale={[1, 2, 0.43]}
           >
-            <meshBasicMaterial map={BG2} ref={meshRef} >
-            {/* <videoTexture attach="map" args={[video]} ref={vidRef}/> */}
-            </meshBasicMaterial>
+            <meshBasicMaterial map={BG2} ref={meshRef}/>
           </mesh>
         </group>
       </group>

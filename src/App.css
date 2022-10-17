@@ -27,6 +27,18 @@
   font-family: CabinCondensed;
   src: url('CabinCondensed-Medium.ttf');
 }
+@font-face {
+  font-family: ethnocentric;
+  src: url('ethnocentric rg.otf');
+}
+@font-face {
+  font-family: Dreamscape;
+  src: url('Dreamscape Sans.ttf');
+}
+@font-face {
+  font-family: GoodTimes;
+  src: url('good times rg.otf');
+}
 
 * {
   margin: 0;
@@ -169,14 +181,14 @@ li {
   position: relative;
   color: white;
   text-align: start;
-  font-size: 6vw;
+  font-size: 5.12vw;
   grid-area: skillsTitle;
 }
 .skillsText {
   position: relative;
   color: white;
   text-align: start;
-  font-size: 2vw;
+  font-size: 1.25vw;
   grid-area: skillsText;
   margin-top: 5vh;
 
@@ -186,6 +198,87 @@ li {
   grid-area: skillsPlayer;
 }
 
+
+
+.swiper-button-next {
+  background-image: url(./Images/ArrowR.png);
+
+  background-repeat: no-repeat;
+  background-size: 150% auto;
+  background-position: center;
+}
+.swiper-button-next::after {
+  display: none;
+}
+.swiper-button-prev {
+  background-image: url(./Images/ArrowL.png);
+
+  background-repeat: no-repeat;
+  background-size: 150% auto;
+  background-position: center;
+}
+.swiper-button-prev::after {
+  display: none;
+}
+
+
+
+.my-component {
+  background: #fff;
+}
+
 .fullscreen-enabled {
-  background: rgb(211, 45, 45);
+  background: rgb(15, 15, 15);
+}
+
+.tester {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.AboutMeTitlesLG {
+  color: white;
+  text-align: start;
+  font-size: 5.12vw;
+  grid-area: skillsTitle;
+}
+.AboutMeTextLG {
+  color: white;
+  text-align: start;
+  font-size: 1.25vw;
+  grid-area: skillsText;
+  margin-top: 5vh;
+
+}
+.AboutMeTitles {
+  color: white;
+  text-align: start;
+  font-size: 5.12vw;
+  grid-area: skillsTitle;
+}
+.AboutMeText {
+  color: white;
+  text-align: start;
+  font-size: 1.25vw;
+  grid-area: skillsText;
+  margin-top: 5vh;
+
+}
+.AboutMeTitlesMobile {
+  position: relative;
+  color: white;
+  text-align: middle;
+  font-size: 12.12vw;
+  grid-area: skillsTitle;
+}
+.AboutMeTextMobile {
+  position: relative;
+  color: white;
+  text-align: start;
+  font-size: 5.25vw;
+  grid-area: skillsText;
+  margin-top: 5vh;
+  padding: 3vw;
 }

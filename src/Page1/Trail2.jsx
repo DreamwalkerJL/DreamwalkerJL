@@ -49,8 +49,6 @@ export default function Trailer() {
 
   // )
 
-
-
   const mouseMovement = new MouseMovement();
 
   const ref = useRef();

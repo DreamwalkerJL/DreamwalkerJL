@@ -23,7 +23,7 @@ export default function Effects() {
           luminanceThreshold={0}
           luminanceSmoothing={1}
       
-          intensity={0}
+          intensity={1}
      
         />
           {/* <LUT lut={texture} /> */}

@@ -115,13 +115,14 @@ export default function Page1() {
     );
   }
   return (
-    <div className="absolute, h-[110%] w-full CanvasClipTop">
+    <div className="absolute, CanvasClipTop h-[110%] w-full">
       <Canvas>
         <Suspense fallback={<Html center>Loading.</Html>}>
-        <Stats/>
+          <Stats />
+          <Moon2 />
+          <Stars />
 
           <EnvLamia />
-
         </Suspense>
       </Canvas>
     </div>
