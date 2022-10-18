@@ -11,6 +11,13 @@ export default function Part1() {
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });
+  const divRef = useRef();
+  const canvasRef = useRef();
+  const [dpr, dprSet] = useState(0.1);
+  const { scrollYProgress } = useScroll({
+    target: divRef,
+    offset: ['end end', 'end start'],
+  });
 
   function Title() {
     const imgRef = useRef();
@@ -29,9 +36,7 @@ export default function Part1() {
             position={[0, 0, -2]}
             scale={0.015}
             className="pointer-events-none"
-          >
-            {/* <Lottie options={defaultOptions2} height={720} width={1500} ref={lottieRef} isStopped={true}/> */}
-          </Html>
+          ></Html>
           <meshBasicMaterial visible={false} />
         </Plane>
         <Image
@@ -58,14 +63,6 @@ export default function Part1() {
       </group>
     );
   }
-
-  const divRef = useRef();
-  const canvasRef = useRef();
-  const [dpr, dprSet] = useState(0.1);
-  const { scrollYProgress } = useScroll({
-    target: divRef,
-    offset: ['end end', 'end start'],
-  });
 
   function CanvasDPR() {
     useFrame(() => {
