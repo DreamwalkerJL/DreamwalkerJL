@@ -12,7 +12,11 @@ const Path = (props) => (
 );
 
 export const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle} className="fixed left-[48.5px] top-[3.5%] w-auto h-auto">
+  <motion.button
+    onClick={toggle}
+    className="fixed left-[48.5px] top-[29px] h-auto w-auto"
+    whileHover={{ scale: 1.3 }}
+  >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{
@@ -35,5 +39,5 @@ export const MenuToggle = ({ toggle }) => (
         }}
       />
     </svg>
-  </button>
+  </motion.button>
 );

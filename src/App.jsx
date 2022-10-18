@@ -1,97 +1,93 @@
 import './App.css';
-
-import {
-  Box,
-  Decal,
-  PerformanceMonitor,
-  Plane,
-  RenderTexture,
-  Stats,
-  useProgress,
-} from '@react-three/drei';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { Suspense, useEffect, useRef, useState } from 'react';
-import Lottie from 'react-lottie';
-
-import NightSky from '../assets/NightSky.json';
-import Lab from './Lab/Lab';
-import { Example } from './Nav/Example';
-import Nav from './Nav/Nav';
-import Page1 from './Page1/Page1';
-import Page2 from './Page2/Page2';
+import { useRef } from 'react';
+import { Menu } from './Nav/Menu';
 import Part1 from './Part1/Part1';
-import HUD from './Part1/HUD';
 import { motion, useScroll } from 'framer-motion';
 import Part2 from './Part2/Part2';
-import Part3 from './Part3/Part3';
-import ImgGalleryMobile from './Part3/ImgGalleryMobile'
+import ImgGalleryMobile from './Part3/ImgGalleryMobile';
 import { useMediaQuery } from 'react-responsive';
 import AboutMe from './AboutMe/AboutMe';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
-
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });
-  const BPsm = useMediaQuery({
-    query: '(min-width: 480px)',
-  });
-  const BPmd = useMediaQuery({
-    query: '(min-width: 768px)',
-  });
-  const BPlg = useMediaQuery({
-    query: '(min-width: 976px)',
-  });
-  const BPxl = useMediaQuery({
-    query: '(min-width: 1440px)',
-  });
-  const { scrollYProgress } = useScroll();
 
-  const frameVariant = {
-    offscreen: {
-      scale: 1,
+  const aboutMeRef = useRef();
+  const skillsRef = useRef();
+  const galleryRef = useRef();
+  const navigate = useNavigate();
 
-      transition: {
-        type: 'linear',
+  function scrollToAboutMe() {
+    aboutMeRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+  function scrollToSkills() {
+    skillsRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+  function scrollToGallery() {
+    isMort
+      ? galleryRef.current.scrollIntoView({ behavior: 'smooth' })
+      : navigate('/gallery');
+  }
 
-        duration: 0,
-      },
-    },
+  function sendMail() {
+    window.location.href = 'mailto:joshua.lim@hotmail.ch';
+  }
 
-    onscreen: {
-      scale: 1,
-
-      transition: {
-        type: 'linear',
-
-        duration: 0,
-      },
-    },
-  };
+  function Footer() {
+    return isMort ? (
+      <div
+        onClick={sendMail}
+        className="relative flex h-[125px]  w-full cursor-pointer items-center justify-center border-t-4 border-yellow-300 bg-black text-center text-[22px] text-white lg:h-[5vw]  lg:border-t-2 lg:text-[1.25vw]"
+      >
+        <p className="pointer-events-none">
+          You can reach out to me via Mail - Joshua.lim@hotmail.ch
+        </p>
+      </div>
+    ) : (
+      <div className="relative   flex h-[5vw] w-full items-center justify-center border-t-2 border-yellow-300 bg-black text-center text-[1.25vw] text-white">
+        <motion.p
+          onClick={sendMail}
+          whileHover={{ scale: 1.2 }}
+          className="cursor-pointer"
+        >
+          You can reach out to me via Mail - Joshua.lim@hotmail.ch
+        </motion.p>
+      </div>
+    );
+  }
 
   return (
     <div>
       <div className="absolute h-full w-full">
-        <div class="relative h-full w-full">
+        <div className="relative h-full w-full">
           <Part1 />
         </div>
-        <AboutMe/>
-        <div className="part2BG relative flex h-auto w-[100] flex-row   lg:py-[5vw]">
+        <div ref={aboutMeRef}>
+          <AboutMe />
+        </div>
+        <div
+          ref={skillsRef}
+          className="part2BG relative flex h-auto w-[100] flex-row pb-40 lg:py-[5vw] lg:pb-2"
+        >
           <Part2 />
         </div>
-        {/* <div className="relative h-full w-full bg-black">
-          <Part3 />
-        </div> */}
-      {isMort && <ImgGalleryMobile/>}
-     
+        {isMort && (
+          <div ref={galleryRef}>
+            <ImgGalleryMobile />
+          </div>
+        )}
+        <Footer />
       </div>
-
-      <div className="">
-        {/* <Nav /> */}
-        {/* <Example /> */}
-
+      <div>
+        <Menu
+          scrollToAboutMe={scrollToAboutMe}
+          scrollToSkills={scrollToSkills}
+          scrollToGallery={scrollToGallery}
+          sendMail={sendMail}
+        />
       </div>
-
     </div>
   );
 }

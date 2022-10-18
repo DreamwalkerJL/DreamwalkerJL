@@ -121,9 +121,12 @@ li {
 
 .text-placeholder {
   border-radius: 5px;
-  width: 200px;
-  height: 20px;
+  background: #000;
+  cursor: pointer;
+  width: 250px;
   flex: 1;
+  color: white;
+
 }
 
 .refresh {

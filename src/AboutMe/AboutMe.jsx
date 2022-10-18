@@ -1,30 +1,56 @@
-import { motion, useScroll, useInView } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 import AboutMeTitle from '../Images/AboutMeTitle.json';
 import HealthySVG from '../Images/AboutMeSVG/Healthy.json';
 import NerdSVG from '../Images/AboutMeSVG/Nerd.json';
 import TechnologySVG from '../Images/AboutMeSVG/Technology.json';
+import HealthyMobileSVG from '../Images/AboutMeSVG/HealthyMobile.json';
+import CreativeMobileSVG from '../Images/AboutMeSVG/CreativeMobile.json';
+import TechnologyMobileSVG from '../Images/AboutMeSVG/TechnologyMobile.json';
 import CreativeSVG from '../Images/AboutMeSVG/Creative.json';
-import { Controls, Player } from '@lottiefiles/react-lottie-player';
+import { Player } from '@lottiefiles/react-lottie-player';
 import AboutMeImg from '../Images/AboutMeImg.jpg';
-import AboutMeTextBG from '../Images/AboutMeTextBG.jpg';
 import { useMediaQuery } from 'react-responsive';
 export default function AboutMe() {
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });
-  const BPsm = useMediaQuery({
-    query: '(min-width: 480px)',
-  });
-  const BPmd = useMediaQuery({
-    query: '(min-width: 768px)',
-  });
-  const BPlg = useMediaQuery({
-    query: '(min-width: 976px)',
-  });
-  const BPxl = useMediaQuery({
-    query: '(min-width: 1440px)',
-  });
+
+  const Var = {
+    offscreen: {
+      x: '-20%',
+      opacity: 0,
+    },
+    onscreen: {
+      x: '0%',
+      opacity: 1,
+
+      transition: {
+        type: 'linear',
+        duration: 2,
+        staggerChildren: 1,
+        delayChildren: 0.5,
+      },
+    },
+  };
+
+  const VarMobile = {
+    offscreen: {
+      x: '-20%',
+      opacity: 0,
+    },
+    onscreen: {
+      x: '0%',
+      opacity: 1,
+
+      transition: {
+        type: 'linear',
+        duration: 2,
+        staggerChildren: 1,
+        delayChildren: 0.5,
+      },
+    },
+  };
 
   function Title() {
     const lottieRef = useRef();
@@ -47,48 +73,12 @@ export default function AboutMe() {
     );
   }
 
-  const Var = {
-    offscreen: {
-      x: '-100%',
-      opacity: 0,
-    },
-    onscreen: {
-      x: '0%',
-      opacity: 1,
-
-      transition: {
-        type: 'linear',
-        duration: 2,
-        staggerChildren: 1,
-        delayChildren: 0.5,
-      },
-    },
-  };
-  const VarMobile = {
-    offscreen: {
-      x: '-20%',
-      opacity: 0,
-    },
-    onscreen: {
-      x: '0%',
-      opacity: 1,
-
-      transition: {
-        type: 'linear',
-        duration: 2,
-        staggerChildren: 1,
-        delayChildren: 0.5,
-      },
-    },
-  };
-
   function Healthy() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
-        className="relative flex flex-col gap-[0vw] left-[4vw]"
+        className="relative left-[4vw] flex flex-col gap-[0vw]"
         variants={Var}
         initial="offscreen"
         whileInView="onscreen"
@@ -126,7 +116,6 @@ export default function AboutMe() {
 
   function Technology() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
@@ -168,7 +157,6 @@ export default function AboutMe() {
 
   function Creative() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
@@ -210,7 +198,6 @@ export default function AboutMe() {
 
   function Nerd() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
@@ -241,7 +228,7 @@ export default function AboutMe() {
         </motion.div>
         <motion.div className="absolute right-[-28vw] top-[2vw] w-[40vw]" variants={Var}>
           <p className="AboutMeText">
-            I'm definitely more of a Nerd, when it comes to my free time. I spend a lot of
+            When it comes to my free time, I'm definitely more of a nerd. I spend a lot of
             time with myself, improving what I feel like is needed. Right now I'm spending
             almost all my time in to coding. The better I am getting at it, the more fun
             I'm having. I also like Video games.
@@ -253,7 +240,6 @@ export default function AboutMe() {
 
   function HealthyMobile() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
@@ -263,11 +249,11 @@ export default function AboutMe() {
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="relative text-center">
+        <motion.div className="relative z-10 text-center">
           <p className="AboutMeTitlesMobile font-Raskhal">Healthy</p>
         </motion.div>
         <motion.div
-          className="absolute  left-0 h-full w-full "
+          className="absolute  left-0 top-[12vw] z-0 h-full w-full "
           variants={VarMobile}
           initial="offscreen"
           whileInView="onscreen"
@@ -275,17 +261,20 @@ export default function AboutMe() {
         >
           <Player
             autoplay
-            src={HealthySVG}
+            src={HealthyMobileSVG}
             speed={1}
-            className="relative h-[75%] w-[75%]"
+            className="relative h-[50%] w-[50%]"
             ref={lottieRef}
             loop
           />
         </motion.div>
-        <motion.div className="relative "           variants={VarMobile}
+        <motion.div
+          className="relative "
+          variants={VarMobile}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}>
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <p className="AboutMeTextMobile w-[80vw] ">
             Working out, eating healthy and sleeping enough is a very important part of my
             life. The habit of taking good care of my body has definitely helped me in
@@ -295,13 +284,13 @@ export default function AboutMe() {
       </motion.div>
     );
   }
+  
   function TechnologyMobile() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
-        className="relative flex flex-col  gap-[20vw] top-[5vw]"
+        className="relative top-[5vw] flex  flex-col gap-[20vw]"
         variants={VarMobile}
         initial="offscreen"
         whileInView="onscreen"
@@ -319,63 +308,22 @@ export default function AboutMe() {
         >
           <Player
             autoplay
-            src={TechnologySVG}
+            src={TechnologyMobileSVG}
             speed={1}
             className="relative h-[50%] w-[50%]"
             ref={lottieRef}
             loop
           />
         </motion.div>
-        <motion.div className="relative bottom-[10vw]"           variants={VarMobile}
+        <motion.div
+          className="relative "
+          variants={VarMobile}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}>
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <p className="AboutMeTextMobile w-[80vw]">
-          I've always been a big fan of Technology. You keep getting to witness new
-            stuff which amazes you. I want to keep my body and mind as healthy as
-            possible, so that I'm still around to see the most mind blowing Technology.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-  function TechnologyMobile() {
-    const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
-
-    return (
-      <motion.div
-        className="relative flex flex-col  gap-[20vw] top-[5vw]"
-        variants={VarMobile}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="relative text-center">
-          <p className="AboutMeTitlesMobile font-Raskhal">Technology</p>
-        </motion.div>
-        <motion.div
-          className="absolute  left-0 top-[15vw] h-full w-full "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={TechnologySVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div className="relative "           variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}>
-          <p className="AboutMeTextMobile w-[80vw] top-[5vw]">
-          I've always been a big fan of Technology. You keep getting to witness new
+            I've always been a big fan of Technology. You keep getting to witness new
             stuff which amazes you. I want to keep my body and mind as healthy as
             possible, so that I'm still around to see the most mind blowing Technology.
           </p>
@@ -386,11 +334,10 @@ export default function AboutMe() {
 
   function CreativeMobile() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
-        className="relative flex flex-col  gap-[20vw] top-[15vw]"
+        className="relative top-[10vw] flex  flex-col gap-[20vw]"
         variants={VarMobile}
         initial="offscreen"
         whileInView="onscreen"
@@ -408,19 +355,22 @@ export default function AboutMe() {
         >
           <Player
             autoplay
-            src={CreativeSVG}
+            src={CreativeMobileSVG}
             speed={1}
             className="relative h-[50%] w-[50%]"
             ref={lottieRef}
             loop
           />
         </motion.div>
-        <motion.div className="relative "           variants={VarMobile}
+        <motion.div
+          className="relative "
+          variants={VarMobile}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}>
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <p className="AboutMeTextMobile w-[80vw] ">
-          I love being open about Art. Every Art usually has something unique to it.
+            I love being open about Art. Every Art usually has something unique to it.
             Getting to understand it and potentially mixing bits of it with ur own unique
             kind of style is genuinly super fun.
           </p>
@@ -431,11 +381,10 @@ export default function AboutMe() {
 
   function NerdMobile() {
     const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
 
     return (
       <motion.div
-        className="relative flex flex-col  gap-[20vw] top-[15vw]"
+        className="relative top-[15vw] flex  flex-col gap-[20vw]"
         variants={VarMobile}
         initial="offscreen"
         whileInView="onscreen"
@@ -460,12 +409,15 @@ export default function AboutMe() {
             loop
           />
         </motion.div>
-        <motion.div className="relative "           variants={VarMobile}
+        <motion.div
+          className="relative "
+          variants={VarMobile}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}>
-          <p className="AboutMeTextMobile w-[80vw] bottom-[2vw] ">
-          I'm definitely more of a Nerd, when it comes to my free time. I spend a lot of
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <p className="AboutMeTextMobile bottom-[2vw] w-[80vw] ">
+            I'm definitely more of a Nerd, when it comes to my free time. I spend a lot of
             time with myself, improving what I feel like is needed. Right now I'm spending
             almost all my time in to coding. The better I am getting at it, the more fun
             I'm having. I also like Video games.
@@ -474,11 +426,6 @@ export default function AboutMe() {
       </motion.div>
     );
   }
-
-
-
-
-
 
   function MeImage() {
     const ImageVar = {
@@ -507,7 +454,6 @@ export default function AboutMe() {
     });
     useEffect(() => {
       scrollYProgress.onChange((latest) => {
-        console.log(latest);
         latest > 0;
       });
     }, []);
@@ -529,29 +475,10 @@ export default function AboutMe() {
     <div className="relative  flex h-[600vw] w-full flex-col items-center gap-[3vw] bg-black py-[3vw] lg:h-[130vw] lg:w-full">
       <Title />
       <MeImage />
-      {isMort ? <HealthyMobile/> : <Healthy />}
-      {isMort ? <TechnologyMobile/> : <Technology />}
-      {isMort ? <CreativeMobile/> : <Creative />}
-      {isMort ? <NerdMobile/> : <Nerd />}
-      {/* <div className="relative w-full h-full bg-[#020202] py-[3vw]">
-<div className='h-[50vw] w-[33vw] bg-AboutMeTextBG bg-contain    absolute left-[7.5vw]    align-baseline text-[1.25vw] text-black'>
-          <div className='mt-[4vw] ml-[3vw]'>
-            <p>Thank's for showing interesst in my Portfolio.</p>
-            <br />
-            <p> My Name is Josh, im currenlty 26 a</p>
-            <p>Thank's for showing interesst in my Portfolio.</p>
-            <br />
-
-            </div>
-        </div>
-
-        <img
-          src={AboutMeImg}
-          width={200}
-          height={200}
-          className=" absolute  right-[7.5vw] flex h-auto w-[40vw]  flex-row  items-center "
-        />
-      </div> */}
+      {isMort ? <HealthyMobile /> : <Healthy />}
+      {isMort ? <TechnologyMobile /> : <Technology />}
+      {isMort ? <CreativeMobile /> : <Creative />}
+      {isMort ? <NerdMobile /> : <Nerd />}
     </div>
   );
 }

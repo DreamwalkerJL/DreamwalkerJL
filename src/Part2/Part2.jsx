@@ -5,11 +5,9 @@ import SkillFrameCoding from '../Images/SkillFrameCoding.json';
 import SkillFrameCodingPic from '../Images/SkillFrameCoding.png';
 import SkillFrame3DPic from '../Images/SkillFrame3D.png';
 import SkillFrameDesignPic from '../Images/SkillFrameDesign.png';
-import { Controls, Player } from '@lottiefiles/react-lottie-player';
-import { motion, useScroll, useInView } from 'framer-motion';
-import { NoToneMapping } from 'three';
+import { Player } from '@lottiefiles/react-lottie-player';
+import { motion, useScroll,} from 'framer-motion';
 import SkillsTitle from '../Images/SkillsTitle.json';
-import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { useMediaQuery } from 'react-responsive';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -17,35 +15,24 @@ import 'tippy.js/dist/backdrop.css';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/themes/material.css';
-import D3Prev1 from '../Images/GalleryPrev/1.jpg'
-import D3Prev2 from '../Images/GalleryPrev/2.jpg'
-import D3Prev3 from '../Images/GalleryPrev/3.jpg'
-import D3Prev4 from '../Images/GalleryPrev/4.jpg'
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import tw from 'twin.macro';
+import D3Prev1 from '../Images/GalleryPrev/1.jpg';
+import D3Prev2 from '../Images/GalleryPrev/2.jpg';
+import D3Prev3 from '../Images/GalleryPrev/3.jpg';
+import D3Prev4 from '../Images/GalleryPrev/4.jpg';
+import {
+  BrowserRouter as Router,
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 export default function () {
-  const WW = window.innerWidth;
-  const size = {
-    sm: 480,
-    md: 768,
-    lg: 976,
-    xl: 1440,
-  };
+
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
-  });
-  const BPsm = useMediaQuery({
-    query: '(min-width: 480px)',
-  });
-  const BPmd = useMediaQuery({
-    query: '(min-width: 768px)',
   });
   const BPlg = useMediaQuery({
     query: '(min-width: 976px)',
   });
-  const BPxl = useMediaQuery({
-    query: '(min-width: 1440px)',
-  });
+
   const divRef = useRef();
   const motionRef = useRef();
   const { scrollYProgress } = useScroll({
@@ -63,7 +50,7 @@ export default function () {
     }, []);
 
     return (
-      <div className="relative flex h-auto  w-full justify-center  lg:bottom-[8vw] lg:h-[12.5vw] lg:mt-[5vw] lg:mb-[5vw] ">
+      <div className="relative flex h-auto  w-full justify-center  lg:bottom-[8vw] lg:mt-[5vw] lg:mb-[8vw] lg:h-[12.5vw] ">
         <Player
           src={SkillsTitle}
           speed={1.5}
@@ -124,8 +111,15 @@ export default function () {
       }
 
       return (
-        <div className="containerR relative h-[30.5vw] w-[80vw] bg-red-400  " ref={divRef}>
-          <div onClick={lottieRepeat} className="cursor-pointer">
+        <div
+          className="containerR relative h-[30.5vw] w-[80vw] bg-red-400  "
+          ref={divRef}
+        >
+          <motion.div
+            onClick={lottieRepeat}
+            className="cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
             <Player
               src={SkillFrameDesign}
               speed={0.5}
@@ -133,7 +127,7 @@ export default function () {
               ref={lottieRef}
               keepLastFrame={lastFrame}
             />
-          </div>
+          </motion.div>
           <motion.p className="skillsTitle  font-Iceland " variants={FrameVar}>
             DESIGN
           </motion.p>
@@ -189,13 +183,18 @@ export default function () {
         }
         return play();
       }
+      const navigate = useNavigate();
 
       return (
         <div
           className=" containerL border-gray-white relative h-[38vw] w-[80vw] border-[.5vw] bg-D3BG bg-cover"
           ref={divRef}
         >
-          <div onClick={lottieRepeat} className="cursor-pointer">
+          <motion.div
+            onClick={lottieRepeat}
+            className="cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
             <Player
               src={SkillFrame3D}
               speed={0.5}
@@ -203,7 +202,7 @@ export default function () {
               ref={lottieRef}
               keepLastFrame={lastFrame}
             />
-          </div>
+          </motion.div>
           <motion.div
             className="skillsTitle left-[2vw] font-Iceland font-bold"
             variants={FrameVar}
@@ -214,27 +213,40 @@ export default function () {
             <div className="break-words text-end">
               <p>
                 From 2020 till 2022, I've teached myself through videos and blogs, on how
-                to work with various 3D Softwares. 
+                to work with various 3D Softwares.
               </p>
-           
-              <p className='relative top-[1vw]'>
+
+              <p className="relative top-[1vw]">
                 My End goal was, to be able to create a fairly realistic Character, which
                 is animatable through a propper Rig. In my latest project, I was able to
                 create that Character.
               </p>
               <br />
-              <Link
-                to='/gallery'
-               
-                className="text-sky-500 text-[2vw]"
-              >
+              <Link to="/gallery" className="text-[2vw] text-sky-500">
                 Check out my 3D Gallery
               </Link>
-              <div className='flex flex-row gap-[1vw] relative top-[1vw]'>
-              <img className='relative w-[15vw] h-[15vw]' src={D3Prev1}/>
-              <img className='relative w-[15vw] h-[15vw]' src={D3Prev2} height={200} width={200}/>
-              <img className='relative w-[15vw] h-[15vw]' src={D3Prev3} height={200} width={200}/>
-              <img className='relative w-[15vw] h-[15vw]' src={D3Prev4} height={200} width={200}/>
+              <div className="relative top-[1vw] flex flex-row gap-[1vw]">
+                <img className="relative h-[15vw] w-[15vw]" src={D3Prev1} />
+                <img
+                  className="relative h-[15vw] w-[15vw]"
+                  src={D3Prev2}
+                  height={200}
+                  width={200}
+                />
+                <img
+                  className="relative h-[15vw] w-[15vw]"
+                  src={D3Prev3}
+                  height={200}
+                  width={200}
+                />
+                <motion.img
+                  className="relative h-[15vw] w-[15vw] cursor-pointer"
+                  src={D3Prev4}
+                  height={200}
+                  width={200}
+                  onClick={() => navigate('/gallery')}
+                  whileHover={{ scale: 1.1 }}
+                />
               </div>
             </div>
           </motion.div>
@@ -251,7 +263,6 @@ export default function () {
       });
       useEffect(() => {
         scrollYProgress.onChange((latest) => {
-       
           lottieRef.current && latest > 0.1 && lottieRef.current.play();
         });
       }, []);
@@ -277,7 +288,11 @@ export default function () {
           className="containerR relative h-[34.5vw] w-[80vw] border-[.5vw] border-black bg-CodingBG bg-cover"
           ref={divRef}
         >
-          <div onClick={lottieRepeat} className="cursor-pointer">
+          <motion.div
+            onClick={lottieRepeat}
+            className="cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
             <Player
               src={SkillFrameCoding}
               speed={0.5}
@@ -285,7 +300,7 @@ export default function () {
               ref={lottieRef}
               keepLastFrame={lastFrame}
             />
-          </div>
+          </motion.div>
           <motion.p
             className="skillsTitle  right-[.5vw] font-Iceland font-bold"
             variants={FrameVar}
@@ -358,7 +373,7 @@ export default function () {
             <div className="relative flex flex-col content-center items-center justify-center">
               <img src={SkillFrameDesignPic} className="w-[95vw]" />
 
-              <p className="h-[15vw] w-[75vw] border-[1vw] border-pink-600 bg-zinc-800 text-center font-Iceland  text-[12vw] leading-[12vw]  text-white">
+              <p className="pointer-events-none h-[15vw] w-[75vw] border-[1vw] border-pink-600 bg-zinc-800 text-center  font-Iceland text-[12vw] leading-[12vw]  text-white">
                 {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
               </p>
             </div>
@@ -407,7 +422,7 @@ export default function () {
             <div className="relative flex flex-col content-center items-center justify-center">
               <img src={SkillFrame3DPic} className="w-[95vw]" />
 
-              <p className="h-[15vw] w-[75vw] border-[1vw] border-purple-900 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw] text-white">
+              <p className="pointer-events-none h-[15vw] w-[75vw] border-[1vw] border-purple-900 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw] text-white">
                 {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
               </p>
             </div>
@@ -461,7 +476,7 @@ export default function () {
             <div className="relative flex flex-col content-center items-center justify-center">
               <img src={SkillFrameCodingPic} className="w-[95vw]" />
 
-              <p className="h-[15vw] w-[75vw] border-[1vw] border-yellow-200 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw]  text-white">
+              <p className="pointer-events-none h-[15vw] w-[75vw] border-[1vw] border-yellow-200 bg-zinc-800 text-center font-Iceland text-[12vw] leading-[12vw]  text-white">
                 {interactiveState && `CLOSE`} {interactiveState === false && `DETAILS`}
               </p>
             </div>
@@ -471,7 +486,7 @@ export default function () {
     }
 
     return (
-      <div className="relative w-full flex-1 space-y-[8vh]   lg:bottom-[10vh]">
+      <div className="relative w-full flex-1 space-y-[8vh]   lg:bottom-[10vh] ">
         <motion.div
           initial="offscreen"
           whileInView="onscreen"
@@ -505,9 +520,6 @@ export default function () {
           {isMort && <CodingPic />}
           {BPlg && <Coding />}
         </motion.div>
-        {/* <img src={SkillFrameCodingPic} height={250} width={200}/>
-          <img src={SkillFrameCodingPic} height={250} width={200}/> */}
-        {/* <Lottie options={SFCoding} height={250} width={200} ref={lottieRef3} /> */}
       </div>
     );
   }
@@ -515,7 +527,6 @@ export default function () {
   return (
     <div className="relative w-full flex-1" ref={divRef}>
       <Title />
-
       <Frame />
     </div>
   );
