@@ -2,60 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Baskara;
-  src: url('Baskara.otf');
-}
-
-@font-face {
-  font-family: Namita;
-  src: url('Namita.otf');
-}
-@font-face {
-  font-family: Momo;
-  src: url('Momo.otf');
-}
-@font-face {
-  font-family: MandatoryPlaything;
-  src: url('MandatoryPlaything.ttf');
-}
-@font-face {
-  font-family: Raskhal;
-  src: url('Raskhal.ttf');
-}
-@font-face {
-  font-family: CabinCondensed;
-  src: url('CabinCondensed-Medium.ttf');
-}
-@font-face {
-  font-family: ethnocentric;
-  src: url('ethnocentric rg.otf');
-}
-@font-face {
-  font-family: Dreamscape;
-  src: url('Dreamscape Sans.ttf');
-}
-@font-face {
-  font-family: GoodTimes;
-  src: url('good times rg.otf');
-}
-
 * {
   margin: 0;
   padding: 0;
 }
-
-/* .webgl
-{
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none
-} */
-
-/* body {
-  overflow: auto
-} */
 
 nav {
   position: absolute;
@@ -126,7 +76,6 @@ li {
   width: 250px;
   flex: 1;
   color: white;
-
 }
 
 .refresh {
@@ -160,8 +109,8 @@ li {
 
 .containerR {
   display: grid;
-  grid-template-columns: auto auto ;
-  grid-template-rows: 10% 90% ;
+  grid-template-columns: auto auto;
+  grid-template-rows: 10% 90%;
   gap: 0px 0px;
   grid-template-areas:
     'Player skillsTitle .'
@@ -171,8 +120,8 @@ li {
 
 .containerL {
   display: grid;
-  grid-template-columns: auto auto ;
-  grid-template-rows: 10% 90% ;
+  grid-template-columns: auto auto;
+  grid-template-rows: 10% 90%;
   gap: 0px 0px;
   grid-template-areas:
     'skillsTitle Player.'
@@ -194,14 +143,11 @@ li {
   font-size: 1.25vw;
   grid-area: skillsText;
   margin-top: 5vh;
-
 }
 
 .skillsPlayer {
   grid-area: skillsPlayer;
 }
-
-
 
 .swiper-button-next {
   background-image: url(./Images/ArrowR.png);
@@ -223,8 +169,6 @@ li {
 .swiper-button-prev::after {
   display: none;
 }
-
-
 
 .my-component {
   background: #fff;
@@ -253,7 +197,6 @@ li {
   font-size: 1.25vw;
   grid-area: skillsText;
   margin-top: 5vh;
-
 }
 .AboutMeTitles {
   color: white;
@@ -267,7 +210,6 @@ li {
   font-size: 1.25vw;
   grid-area: skillsText;
   margin-top: 5vh;
-
 }
 .AboutMeTitlesMobile {
   position: relative;

@@ -16,16 +16,6 @@ module.exports = {
       AboutMeTextBG: "url('./Images/AboutMeTextBG.jpg')",
     },
     fontFamily: {
-      Namita: ['Namita', 'Helvetica', 'Arial', 'sans-serif'],
-      Momo: ['Momo', 'Helvetica', 'Arial', 'sans-serif'],
-      Baskara: ['Baskara', 'Helvetica', 'Arial', 'sans-serif'],
-      Mysteria: ['Mysteria', 'Helvetica', 'Arial', 'sans-serif'],
-      MandatoryPlaything: ['MandatoryPlaything', 'Helvetica', 'Arial', 'sans-serif'],
-      Raskhal: ['Raskhal', 'Helvetica', 'Arial', 'sans-serif'],
-      CabinCondensed: ['CabinCondensed', 'Helvetica', 'Arial', 'sans-serif'],
-      ethnocentric: ['ethnocentric', 'Helvetica', 'Arial', 'sans-serif'],
-      Dreamscape: ['Dreamscape', 'Helvetica', 'Arial', 'sans-serif'],
-      GoodTimes: ['GoodTimes', 'Helvetica', 'Arial', 'sans-serif'],
       Iceland: ['Iceland', 'Helvetica', 'Arial', 'sans-serif'],
     },
     extend: {
