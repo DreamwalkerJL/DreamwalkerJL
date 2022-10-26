@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import App from './App';
 import Part3 from './Part3/Part3'
+import Page1 from './Page1/Page1'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="gallery" element={<Part3 />} />
+      <Route path="moon" element={<Page1 />} />
       <Route
       path="*"
       element={

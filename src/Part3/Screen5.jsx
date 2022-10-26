@@ -19,6 +19,7 @@ import AreaVideo from '../Images/Area.mp4';
 import ImgGallery from './ImgGallery';
 import ExitGallery from '../Images/ExitGallery.png';
 import { useNavigate } from 'react-router-dom';
+import AreaImg from '../Images/Area.jpg'
 
 export function Screen5() {
   const Area = useVideoTexture(AreaVideo);
@@ -26,6 +27,7 @@ export function Screen5() {
   const [imgState, imgStateSet] = useState(1);
   const [onFullDisplay, onFullDisplaySet] = useState(false);
   const XTexture = useTexture(XImg);
+  const AreaImgTexture = useTexture(AreaImg);
   const navigate = useNavigate();
 
   function rightButton() {
@@ -84,7 +86,7 @@ export function Screen5() {
         <meshBasicMaterial map={XTexture} toneMapped={false} />
       </Plane>
       <Plane args={[4, 2.1]}>
-        <meshStandardMaterial map={Area} />
+        <meshStandardMaterial map={AreaImgTexture } />
       </Plane>
       <Plane args={[1.499, 0.598]} position={[0.0058, 0.149, 0.001]} rotation={[0, 0, 0]}>
         <meshStandardMaterial
@@ -94,7 +96,7 @@ export function Screen5() {
           transparent
         />
       </Plane>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
     </group>
   );
 }

@@ -10,10 +10,28 @@ import TechnologyMobileSVG from '../Images/AboutMeSVG/TechnologyMobile.json';
 import CreativeSVG from '../Images/AboutMeSVG/Creative.json';
 import { Player } from '@lottiefiles/react-lottie-player';
 import AboutMeImg from '../Images/AboutMeImg.jpg';
+import AboutMeDesign from '../Images/AboutMe/AboutMeDesign.jpg';
+import AboutMeD3 from '../Images/AboutMe/AboutMeD3.jpg';
+import AboutMeCoding from '../Images/AboutMe/AboutMeCoding.jpg';
+import AboutMeMobileDesign from '../Images/AboutMe/AboutMeMobileDesign.jpg';
+import AboutMeMobileD3 from '../Images/AboutMe/AboutMeMobileD3.jpg';
+import AboutMeMobileCoding from '../Images/AboutMe/AboutMeMobileCoding.jpg';
 import { useMediaQuery } from 'react-responsive';
 export default function AboutMe() {
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
+  });
+  const BPsm = useMediaQuery({
+    query: '(min-width: 540px)',
+  });
+  const BPmd = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
+  const BPlg = useMediaQuery({
+    query: '(min-width: 976px)',
+  });
+  const BPxl = useMediaQuery({
+    query: '(min-width: 1440px)',
   });
 
   const Var = {
@@ -52,433 +70,105 @@ export default function AboutMe() {
     },
   };
 
-  function Title() {
-    const lottieRef = useRef();
-    const { scrollYProgress } = useScroll();
-    useEffect(() => {
-      scrollYProgress.onChange((latest) => {
-        lottieRef.current && latest > 0.05 && lottieRef.current.play();
-      });
-    }, []);
+  function Container() {
     return (
-      <div className="relative flex  h-[15vh] w-[70vw] justify-center lg:h-[15vw] lg:w-[60vw] ">
-        <Player
-          src={AboutMeTitle}
-          speed={1.5}
-          className="relative h-full w-full "
-          ref={lottieRef}
-          keepLastFrame
-        />
+      <div>
+        <div className=" relative left-[10vw] flex h-max w-[68vw]  flex-row flex-wrap gap-[10vw] pt-[70vw] pb-[20vw] opacity-100 lg:left-[0vw] lg:top-[300px] lg:gap-[4.5vw] lg:pt-[310px] lg:pb-[450px] ">
+          <motion.div
+            className="  relative  h-max   w-max border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:top-[8.9vw]  lg:order-2"
+            whileHover={{
+              backgroundColor: '#ffffff',
+              transition: { duration: 0.25 },
+            }}
+          >
+            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+              ME MYSELF & I
+            </p>
+            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              I'm a passionate web designer & front-end developer based in Switzerland. My
+              goal is to stay consistent in my desire to improve, so that I'll one day be
+              able to make a big impact with my skills.
+            </p>
+          </motion.div>
+          <motion.div
+            className="  relative h-max  w-max cursor-pointer border-[.3vw]  border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-1  "
+            whileHover={{
+              backgroundColor: '#ffffff',
+              scale: 1.01,
+              transition: { duration: 0.25 },
+            }}
+          >
+            <img
+              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              src={BPsm ? AboutMeDesign : AboutMeMobileDesign}
+            />
+            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+              DESIGN
+            </p>
+            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              Around 2015 I started setting foot in Graphical Design with Photoshop.
+              Working in the TV Branche as a Graphic & Motion Designer, I've created
+              countless flyer, poster, videos etc. Right now I'm more focused on Web
+              Design.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="  relative h-max  w-max cursor-pointer border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-3"
+            whileHover={{
+              backgroundColor: '#ffffff',
+              scale: 1.01,
+              transition: { duration: 0.25 },
+            }}
+          >
+            <img
+              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              src={BPsm ? AboutMeD3 : AboutMeMobileD3}
+            />
+            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+              3D
+            </p>
+            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              In 2020 I started creating Motion Design & Pictures with 3D. It has been
+              very joyful working with all kinds of 3D Softwares. With Three.js I was able
+              to implement my 3D knowledge with front-end coding. Creating 3D in React has
+              been a gamechanger for me.
+            </p>
+          </motion.div>
+          <motion.div
+            className=" relative h-max  w-max cursor-pointer  border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-4"
+            whileHover={{
+              backgroundColor: '#ffffff',
+              scale: 1.01,
+              transition: { duration: 0.25 },
+            }}
+          >
+            <img
+              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              src={BPsm ? AboutMeCoding : AboutMeMobileCoding}
+            />
+            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+              CODING
+            </p>
+            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              In 2022 I started taking coding more serious. Working with different kinds
+              of front-end frameworks like React and Three.js has been very enjoyable.
+              With help of my previous experience in Design & 3D, I am able to create
+              unique Websites.
+            </p>
+          </motion.div>
+        </div>
       </div>
     );
   }
 
-  function Healthy() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative left-[4vw] flex flex-col gap-[0vw]"
-        variants={Var}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="absolute top-[2vw] right-[17vw] z-0">
-          <p className="AboutMeTitles font-Raskhal">Healthy</p>
-        </motion.div>
-        <motion.div
-          className="absolute  bottom-[20vw] top-[2vw] right-[13.5vw] z-10 flex h-[15vw] w-[15vw] items-start justify-start align-baseline"
-          variants={Var}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={HealthySVG}
-            speed={1}
-            className="absolute h-[75%] w-[75%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div className="absolute top-[2vw] right-[-28vw] w-[40vw]" variants={Var}>
-          <p className="AboutMeText">
-            Working out, eating healthy and sleeping enough is a very important part of my
-            life. The habit of taking good care of my body has definitely helped me in
-            many situations. I could get a bit more sunlight tho...
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function Technology() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[10vw] left-[4vw]"
-        variants={Var}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div
-          className="absolute right-[15vw] top-[3.5vw] z-10  flex h-[15vw] w-[15vw] items-start justify-start align-baseline"
-          variants={Var}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={TechnologySVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div className="absolute right-[17vw] top-[2vw] z-0">
-          <p className="AboutMeTitles font-Raskhal">Technology</p>
-        </motion.div>
-        <motion.div className="absolute right-[-28vw] top-[2vw] w-[40vw]" variants={Var}>
-          <p className="AboutMeText">
-            I've always been a big fan of Technology. You keep getting to witness new
-            stuff which amazes you. I want to keep my body and mind as healthy as
-            possible, so that I'm still around to see the most mind blowing Technology.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function Creative() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[20vw] left-[4vw]"
-        variants={Var}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div
-          className="absolute right-[15vw] top-[3.5vw] z-10  flex h-[15vw] w-[15vw] items-start justify-start align-baseline"
-          variants={Var}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={CreativeSVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div className="absolute right-[17vw] top-[2.5vw] z-0">
-          <p className="AboutMeTitles font-Raskhal">Creative</p>
-        </motion.div>
-        <motion.div className="absolute right-[-28vw] top-[2vw] w-[40vw]" variants={Var}>
-          <p className="AboutMeText">
-            I love being open about Art. Every Art usually has something unique to it.
-            Getting to understand it and potentially mixing bits of it with ur own unique
-            kind of style is genuinly super fun.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function Nerd() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[30vw] left-[4vw]"
-        variants={Var}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div
-          className="absolute right-[14.5vw] top-[2vw] z-10  flex h-[15vw] w-[15vw] items-start justify-start align-baseline"
-          variants={Var}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={NerdSVG}
-            speed={1}
-            className="relative h-[75%] w-[75%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div className="absolute right-[17vw] top-[2vw] z-0">
-          <p className="AboutMeTitles font-Raskhal">Nerd</p>
-        </motion.div>
-        <motion.div className="absolute right-[-28vw] top-[2vw] w-[40vw]" variants={Var}>
-          <p className="AboutMeText">
-            When it comes to my free time, I'm definitely more of a nerd. I spend a lot of
-            time with myself, improving what I feel like is needed. Right now I'm spending
-            almost all my time in to coding. The better I am getting at it, the more fun
-            I'm having. I also like Video games.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function HealthyMobile() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative flex flex-col  gap-[20vw]"
-        variants={VarMobile}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="relative z-10 text-center">
-          <p className="AboutMeTitlesMobile font-Raskhal">Healthy</p>
-        </motion.div>
-        <motion.div
-          className="absolute  left-0 top-[12vw] z-0 h-full w-full "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={HealthyMobileSVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div
-          className="relative "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <p className="AboutMeTextMobile w-[80vw] ">
-            Working out, eating healthy and sleeping enough is a very important part of my
-            life. The habit of taking good care of my body has definitely helped me in
-            many situations. I could get a bit more sunlight tho...
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function TechnologyMobile() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[5vw] flex  flex-col gap-[20vw]"
-        variants={VarMobile}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="relative text-center">
-          <p className="AboutMeTitlesMobile font-Raskhal">Technology</p>
-        </motion.div>
-        <motion.div
-          className="absolute  left-0 top-[15vw] h-full w-full "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={TechnologyMobileSVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div
-          className="relative "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <p className="AboutMeTextMobile w-[80vw]">
-            I've always been a big fan of Technology. You keep getting to witness new
-            stuff which amazes you. I want to keep my body and mind as healthy as
-            possible, so that I'm still around to see the most mind blowing Technology.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function CreativeMobile() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[10vw] flex  flex-col gap-[20vw]"
-        variants={VarMobile}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="relative text-center">
-          <p className="AboutMeTitlesMobile font-Raskhal">Creative</p>
-        </motion.div>
-        <motion.div
-          className="absolute  left-0 top-[15vw] h-full w-full "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={CreativeMobileSVG}
-            speed={1}
-            className="relative h-[50%] w-[50%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div
-          className="relative "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <p className="AboutMeTextMobile w-[80vw] ">
-            I love being open about Art. Every Art usually has something unique to it.
-            Getting to understand it and potentially mixing bits of it with ur own unique
-            kind of style is genuinly super fun.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function NerdMobile() {
-    const lottieRef = useRef();
-
-    return (
-      <motion.div
-        className="relative top-[15vw] flex  flex-col gap-[20vw]"
-        variants={VarMobile}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <motion.div className="relative text-center">
-          <p className="AboutMeTitlesMobile font-Raskhal">Nerd</p>
-        </motion.div>
-        <motion.div
-          className="absolute  left-0  h-full w-full "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <Player
-            autoplay
-            src={NerdSVG}
-            speed={1}
-            className="relative h-[75%] w-[75%]"
-            ref={lottieRef}
-            loop
-          />
-        </motion.div>
-        <motion.div
-          className="relative "
-          variants={VarMobile}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <p className="AboutMeTextMobile bottom-[2vw] w-[80vw] ">
-            I'm definitely more of a Nerd, when it comes to my free time. I spend a lot of
-            time with myself, improving what I feel like is needed. Right now I'm spending
-            almost all my time in to coding. The better I am getting at it, the more fun
-            I'm having. I also like Video games.
-          </p>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  function MeImage() {
-    const ImageVar = {
-      offscreen: {
-        y: -100,
-        opacity: 0,
-        width: '20%',
-      },
-      onscreen: {
-        y: 0,
-        opacity: 1,
-        width: '80%',
-        transition: {
-          type: 'linear',
-          duration: 2,
-          staggerChildren: 0.5,
-          delayChildren: 1,
-        },
-      },
-    };
-
-    const divRef = useRef();
-    const { scrollYProgress } = useScroll({
-      target: divRef,
-      offset: ['end end', 'end center'],
-    });
-    useEffect(() => {
-      scrollYProgress.onChange((latest) => {
-        latest > 0;
-      });
-    }, []);
-    return (
-      <motion.div
-        className="relative mt-[0vw] flex h-auto w-[20vw] items-center justify-center "
-        ref={divRef}
-        variants={ImageVar}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        <img src={AboutMeImg} width={200} height={200} className="  h-auto w-[80vw]  " />
-      </motion.div>
-    );
-  }
-
   return (
-    <div className="relative  flex h-[600vw] w-full flex-col items-center gap-[3vw] bg-black py-[3vw] lg:h-[130vw] lg:w-full">
-      <Title />
-      <MeImage />
-      {isMort ? <HealthyMobile /> : <Healthy />}
-      {isMort ? <TechnologyMobile /> : <Technology />}
-      {isMort ? <CreativeMobile /> : <Creative />}
-      {isMort ? <NerdMobile /> : <Nerd />}
+    <div className="relative bg-black">
+      <div className="relative top-[30px] z-10 flex h-[30px] w-full   bg-BGFrameTop bg-left" />
+      <div className="relative left-[50%] z-0 flex  w-full translate-x-[-50%] flex-col bg-[#f9ef02] bg-AboutMeMobileBG  bg-contain bg-[center_top] bg-no-repeat lg:items-center  lg:bg-AboutMeBG lg:bg-auto lg:bg-right ">
+        <Container />
+      </div>
+      <div className="relative bottom-[30px] z-10 flex h-[30px] w-full  bg-BGFrameBot bg-left" />
     </div>
   );
 }

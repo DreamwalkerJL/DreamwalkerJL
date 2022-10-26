@@ -1,29 +1,8 @@
 import { motion } from 'framer-motion';
 import * as React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import tw from 'twin.macro';
-
-const variants = {
-  open: {
-    y: 0,
-    x: 0,
-    opacity: 1,
-
-    transition: {
-      y: { type: 'spring', stiffness: 1200, velocity: -1, delay: 2.5 },
-      duration: 1,
-    },
-  },
-  closed: {
-    y: 0,
-    x: -100,
-
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 200, delay: 1.5 },
-    },
-  },
-};
-const colors = ['#00c3ff', '#09d3e1', '#1affa0', '#00ff22', '#33ff00'];
 
 export const MenuItem = ({
   isOpen,
@@ -31,12 +10,67 @@ export const MenuItem = ({
   scrollToSkills,
   scrollToGallery,
   sendMail,
+  toggleOpen,
 }) => {
+  const isMort = useMediaQuery({
+    query: '(max-width: 976px)',
+  });
+
+  const variants = {
+    open: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+
+      transition: {
+        y: { type: 'linear', delay: 2.5 },
+        duration: 1,
+      },
+    },
+    closed: {
+      y: 0,
+      x: -100,
+
+      opacity: 0,
+      transition: {
+        y: { type: 'linear', delay: 1.5 },
+        duration: .3
+      },
+    },
+  };
+
+  const variantsMobile = {
+    open: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+
+      transition: {
+        y: { type: 'linear', delay: 2.5 },
+        duration: 0,
+      },
+    },
+    closed: {
+      y: 0,
+      x: 0,
+
+      opacity: 0,
+      transition: {
+        y: { type: 'linear', delay: 1.5 },
+        duration: 0,
+      },
+    },
+  };
+  const colors = ['#00c3ff', '#09d3e1', '#1affa0', '#00ff22', '#33ff00'];
+
   const Titles = ['Home', 'About Me', 'Skills', 'Gallery'];
 
+  function whichVarDevice() {
+   return isMort ? variantsMobile : variants
+  }
   return (
     <motion.div
-      variants={variants}
+      variants={whichVarDevice()}
       className="relative top-28 left-6 flex w-12 flex-col gap-12"
       css={[
         tw``, // Add base styles first
@@ -44,52 +78,62 @@ export const MenuItem = ({
       ]}
     >
       <motion.div
-        className="text-placeholder relative border-2 border-[#09d3e1]"
+        className="text-placeholder relative border-2 border-[#5681c0]"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' }), toggleOpen();
+        }}
       >
-        <div className="pointer-events-none items-center justify-center text-center align-middle font-MandatoryPlaything text-4xl">
+        <div className="font-MandatoryPlaything pointer-events-none items-center justify-center text-center align-middle text-4xl">
           {Titles[0]}
         </div>
       </motion.div>
       <motion.div
-        className="text-placeholder relative border-2 border-[#1affa0]"
+        className="text-placeholder relative border-2 border-[#4b7bc4]"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onClick={scrollToAboutMe}
+        onClick={() => {
+          scrollToAboutMe(), toggleOpen();
+        }}
       >
-        <div className="pointer-events-none items-center justify-center text-center align-middle font-MandatoryPlaything text-4xl">
+        <div className="font-MandatoryPlaything pointer-events-none items-center justify-center text-center align-middle text-4xl">
           {Titles[1]}
         </div>
       </motion.div>
       <motion.div
-        className="text-placeholder relative border-2 border-[#00ff22]"
+        className="text-placeholder relative border-2 border-[#3f74c2]"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onClick={scrollToSkills}
+        onClick={() => {
+          scrollToSkills(), toggleOpen();
+        }}
       >
-        <div className="pointer-events-none items-center justify-center text-center align-middle font-MandatoryPlaything text-4xl">
+        <div className="font-MandatoryPlaything pointer-events-none items-center justify-center text-center align-middle text-4xl">
           {Titles[2]}
         </div>
       </motion.div>
       <motion.div
-        className="text-placeholder relative border-2 border-[#33ff00]"
+        className="text-placeholder relative border-2 border-[#2c68c2]"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onClick={scrollToGallery}
+        onClick={() => {
+          scrollToGallery(), toggleOpen();
+        }}
       >
-        <div className="pointer-events-none items-center justify-center text-center align-middle font-MandatoryPlaything text-4xl">
+        <div className="font-MandatoryPlaything pointer-events-none items-center justify-center text-center align-middle text-4xl">
           {Titles[3]}
         </div>
       </motion.div>
       <motion.div
-        className="relative w-[150px] cursor-pointer border-2 border-[#33ff00] bg-black text-white"
+        className="relative w-[150px] cursor-pointer border-2 border-[#1c5fc4] bg-black text-white"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onClick={sendMail}
+        onClick={() => {
+          sendMail(), toggleOpen();
+        }}
       >
-        <div className="pointer-events-none items-center justify-center text-center align-middle font-MandatoryPlaything text-2xl">
+        <div className="font-MandatoryPlaything pointer-events-none items-center justify-center text-center align-middle text-2xl">
           <p>@ Mail Me</p>
         </div>
       </motion.div>

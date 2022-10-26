@@ -8,6 +8,8 @@ import ImgGalleryMobile from './Part3/ImgGalleryMobile';
 import { useMediaQuery } from 'react-responsive';
 import AboutMe from './AboutMe/AboutMe';
 import { useNavigate } from 'react-router-dom';
+import Skills from './Skills/Skills';
+import SkillsMap from './Skills/SkillsMap';
 
 function App() {
   const isMort = useMediaQuery({
@@ -36,26 +38,9 @@ function App() {
   }
 
   function Footer() {
-    return isMort ? (
-      <div
-        onClick={sendMail}
-        className="relative flex h-[125px]  w-full cursor-pointer items-center justify-center border-t-4 border-yellow-300 bg-black text-center text-[22px] text-white lg:h-[5vw]  lg:border-t-2 lg:text-[1.25vw]"
-      >
-        <p className="pointer-events-none">
-          You can reach out to me via Mail - Joshua.lim@hotmail.ch
-        </p>
-      </div>
-    ) : (
-      <div className="relative   flex h-[5vw] w-full items-center justify-center border-t-2 border-yellow-300 bg-black text-center text-[1.25vw] text-white">
-        <motion.p
-          onClick={sendMail}
-          whileHover={{ scale: 1.2 }}
-          className="cursor-pointer"
-        >
-          You can reach out to me via Mail - Joshua.lim@hotmail.ch
-        </motion.p>
-      </div>
-    );
+    return  (
+ <div className='relative w-full h-[5vh] bg-[#f9ef02] '><div className="relative  z-10 flex h-[30px] w-full bg-[#f9ef02]  bg-BGFrameTop bg-left" /></div>
+    )
   }
 
   return (
@@ -64,29 +49,34 @@ function App() {
         <div className="relative h-full w-full">
           <Part1 />
         </div>
-        <div ref={aboutMeRef}>
+        <div ref={aboutMeRef} className="">
           <AboutMe />
+          {/* <Skills/> */}
+          <div className="relative z-0  h-max  w-full  bg-SkillsBG  bg-cover bg-fixed bg-[center_top] bg-no-repeat pt-[250px]   ">
+            <SkillsMap />
+          </div>
+          <div className="relative flex h-full w-full bg-white" />
         </div>
-        <div
+        {/* <div
           ref={skillsRef}
           className="part2BG relative flex h-auto w-[100] flex-row pb-40 lg:py-[5vw] lg:pb-2"
         >
           <Part2 />
-        </div>
-        {isMort && (
+        </div> */}
+        {/* {isMort && (
           <div ref={galleryRef}>
             <ImgGalleryMobile />
           </div>
-        )}
+        )} */}
         <Footer />
       </div>
       <div>
-        <Menu
+        {/* <Menu
           scrollToAboutMe={scrollToAboutMe}
           scrollToSkills={scrollToSkills}
           scrollToGallery={scrollToGallery}
           sendMail={sendMail}
-        />
+        /> */}
       </div>
     </div>
   );

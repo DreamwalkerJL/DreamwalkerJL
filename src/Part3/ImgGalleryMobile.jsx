@@ -16,6 +16,8 @@ import tw from 'twin.macro';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import Exit from '../Images/Exit.jpg';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import ArrowL from '../Images/ArrowL.png';
+import ArrowR from '../Images/ArrowR.png';
 export default function ImgGalleryMobile() {
   function Title() {
     const lottieRef = useRef();
@@ -41,7 +43,10 @@ export default function ImgGalleryMobile() {
   function GalleryMob() {
     const handle = useFullScreenHandle();
     const [swiperState, swiperStateSet] = useState(1);
-
+    const swiper = useSwiper();
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+    useEffect(() => {}, []);
     return (
       <div>
         <FullScreen
@@ -78,9 +83,14 @@ export default function ImgGalleryMobile() {
                   className="relative max-h-full py-[4vh] "
                   src={Gallery[3][swiperState]}
                 />
+
               </div>
             </TransformComponent>
           </TransformWrapper>
+          <div className='relative bottom-96 flex justify-center items-center gap-60'>
+                  <img className="relative h-36 w-36 z-20" src={ArrowL} ref={prevRef} />
+                  <img className="relative h-36 w-36 z-20" src={ArrowR} ref={nextRef} />
+                </div>
         </FullScreen>
 
         <Swiper
@@ -89,6 +99,12 @@ export default function ImgGalleryMobile() {
           spaceBetween={50}
           slidesPerView={1}
           navigation
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
           scrollbar={{ draggable: true }}
           onSlideChange={(swiper) =>
             swiper.activeIndex < swiper.previousIndex

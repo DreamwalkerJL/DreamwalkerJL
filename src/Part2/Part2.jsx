@@ -6,7 +6,7 @@ import SkillFrameCodingPic from '../Images/SkillFrameCoding.png';
 import SkillFrame3DPic from '../Images/SkillFrame3D.png';
 import SkillFrameDesignPic from '../Images/SkillFrameDesign.png';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { motion, useScroll,} from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import SkillsTitle from '../Images/SkillsTitle.json';
 import { useMediaQuery } from 'react-responsive';
 import Tippy from '@tippyjs/react';
@@ -19,18 +19,26 @@ import D3Prev1 from '../Images/GalleryPrev/1.jpg';
 import D3Prev2 from '../Images/GalleryPrev/2.jpg';
 import D3Prev3 from '../Images/GalleryPrev/3.jpg';
 import D3Prev4 from '../Images/GalleryPrev/4.jpg';
-import {
-  BrowserRouter as Router,
-  Link,
-  useNavigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Link, useNavigate } from 'react-router-dom';
 export default function () {
-
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });
+
+  const isPC = useMediaQuery({
+    query: '(max-width: 1440px)',
+  });
+  const BPsm = useMediaQuery({
+    query: '(min-width: 480px)',
+  });
+  const BPmd = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
   const BPlg = useMediaQuery({
     query: '(min-width: 976px)',
+  });
+  const BPxl = useMediaQuery({
+    query: '(min-width: 1440px)',
   });
 
   const divRef = useRef();
@@ -135,18 +143,18 @@ export default function () {
             <div>
               <div className="mr-[2vw] break-words ">
                 <p>
-                  At around 2015 I've started setting foot in to Graphical Design with
-                  Photoshop. Since then it has been by far my most used Software.
+                  Around 2015 I started setting foot in Graphical Design with Photoshop.
+                  Since then it has been by far my most used software.
                 </p>
                 <br />
                 <p>
-                  During 2018 I've learned about Video editing with After Effects and
-                  Premiere Pro. It was very enjoyable editing multiple Frames, instead the
+                  During 2018 I've learned about video editing with After Effects and
+                  Premiere Pro. It was very enjoyable editing multiple frames, instead the
                   usual one for a picture.
                 </p>
                 <br />
                 <p>
-                  In 2019 startet an Internship as a Graphic Designer in the TV Industry.
+                  In 2019 startet an internship as a Graphic Designer in the TV Industry.
                 </p>
               </div>
             </div>
@@ -212,14 +220,14 @@ export default function () {
           <motion.div className="skillsText left-[2vw] text-end" variants={FrameVar}>
             <div className="break-words text-end">
               <p>
-                From 2020 till 2022, I've teached myself through videos and blogs, on how
-                to work with various 3D Softwares.
+                From 2020 till 2022, I've taught teached myself through videos and blogs,
+                on how to work with various 3D Softwares, mostly through videos and blogs.
               </p>
 
               <p className="relative top-[1vw]">
-                My End goal was, to be able to create a fairly realistic Character, which
-                is animatable through a propper Rig. In my latest project, I was able to
-                create that Character.
+                My end goal was to be able to create a fairly realistic character, which
+                is animatable through a proper rig. In my latest project, I was able to
+                create that character.
               </p>
               <br />
               <Link to="/gallery" className="text-[2vw] text-sky-500">
@@ -246,6 +254,7 @@ export default function () {
                   width={200}
                   onClick={() => navigate('/gallery')}
                   whileHover={{ scale: 1.1 }}
+                  
                 />
               </div>
             </div>
@@ -312,16 +321,16 @@ export default function () {
               <p>In 2020 I've tried a bit of HTML and CSS, to build my own website.</p>
               <br />
               <p>
-                When 2022 started, I wanted to take Coding a bit more serious, to see
-                where it could take me. I refreshed my HTML & CSS and teached myself JS. I
-                was not really amazed by coding at that point. But my passion towards
-                coding definitely changed, when I started using React.
+                When 2022 started, I wanted to take Ccoding a bit more seriously, to see
+                where it could take me. I refreshed my HTML & CSS and taught teached
+                myself JS. I was not really amazed by coding at that point. But my passion
+                towards coding definitely changed when I started using React.
               </p>
               <br />
               <p>
-                React really made me starting to enjoy coding and simply learning new
-                stuff on another gear. I also picked up ThreeJS, since I already have vast
-                3D knowledge.
+                React really made me start to enjoy coding and simply learning new stuff
+                on another gear. I also picked up ThreeJS, since I already have vast 3D
+                knowledge.
               </p>
             </div>
           </motion.div>
@@ -352,18 +361,18 @@ export default function () {
                 <br />
                 <div className="break-words text-start text-lg md:text-4xl  ">
                   <p>
-                    At around 2015 I've started setting foot in to Graphical Design with
-                    Photoshop. Since then it has been by far my most used Software.
+                    Around 2015 I started setting foot in Graphical Design with Photoshop.
+                    Since then it has been by far my most used software.
                   </p>
                   <br />
                   <p>
-                    During 2018 I've learned about Video editing with After Effects and
-                    Premiere Pro. It was a very enjoyable editing multiple Frames, instead
+                    During 2018 I've learned about video editing with After Effects and
+                    Premiere Pro. It was a very enjoyable editing multiple frames, instead
                     the usual one for a picture.
                   </p>
                   <br />
                   <p>
-                    In 2019 startet an Internship as a Graphic Designer in the TV
+                    In 2019 startet an internship as a Graphic Designer in the TV
                     Industry.
                   </p>
                 </div>
@@ -405,14 +414,15 @@ export default function () {
                 <br />
                 <div className="break-words text-start text-lg md:text-4xl  ">
                   <p>
-                    From 2020 till 2022, I've teached myself through videos and blogs, on
-                    how to work with various 3D Softwares.
+                    From 2020 till 2022, I've taught teached myself through videos and
+                    blogs, on how to work with various 3D Softwares, mostly through videos
+                    and blogs.
                   </p>
                   <br />
                   <p>
-                    My End goal was, to be able to create a fairly realistic Character,
-                    which is animatable through a propper Rig. In my latest project, I was
-                    able to create that Character.
+                    My end goal was to be able to create a fairly realistic character,
+                    which is animatable through a proper rig. In my latest project, I was
+                    able to create that character.
                   </p>
                   <br />
                 </div>
@@ -458,14 +468,15 @@ export default function () {
                   </p>
                   <br />
                   <p>
-                    When 2022 started, I wanted to take Coding a bit more serious, to see
-                    where it could take me. I refreshed my HTML & CSS and teached myself
-                    JS. I was not really amazed by coding at that point. But my passion
-                    towards coding definitely changed, when I started using React.
+                    When 2022 started, I wanted to take Ccoding a bit more seriously, to
+                    see where it could take me. I refreshed my HTML & CSS and taught
+                    teached myself JS. I was not really amazed by coding at that point.
+                    But my passion towards coding definitely changed when I started using
+                    React.
                   </p>
                   <br />
                   <p>
-                    React really made me starting to enjoy coding and simply learning new
+                    React really made me start to enjoy coding and simply learning new
                     stuff on another gear. I also picked up ThreeJS, since I already have
                     vast 3D knowledge.
                   </p>

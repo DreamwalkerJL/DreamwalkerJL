@@ -36,6 +36,7 @@
     "maath": "^0.4.2",
     "math-random": "^2.0.1",
     "mouse-movement": "^0.0.9",
+    "nanoid": "^4.0.0",
     "postprocessing": "^6.28.7",
     "react": "^18.2.0",
     "react-cursor-position": "^3.0.3",

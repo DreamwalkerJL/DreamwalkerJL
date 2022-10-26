@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Namita;
+  src: url('Namita.otf');
+}
+@font-face {
+  font-family: Mysteria;
+  src: url('Mysteria.otf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -227,3 +236,48 @@ li {
   margin-top: 5vh;
   padding: 3vw;
 }
+
+@media only screen and (min-width: 976px) {
+  .containerAboutMe {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 0px 0px;
+    grid-template-areas:
+      'grid1 grid2'
+      'grid3 grid4';
+  }
+  .grid1 {
+    grid-area: grid1;
+  }
+  .grid2 {
+    grid-area: grid2;
+  }
+  .grid3 {
+    grid-area: grid3;
+  }
+  .grid4 {
+    grid-area: grid4;
+  }
+}
+.SkillsGrid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33.2% 66.8%;
+  gap: 0px 0px;
+  grid-template-areas:
+    'SkillsGrid1 SkillsGrid3'
+    'SkillsGrid2 SkillsGrid3';
+}
+.SkillsGrid1 {
+  grid-area: SkillsGrid1;
+}
+.SkillsGrid2 {
+  grid-area: SkillsGrid2;
+}
+.SkillsGrid3 {
+  grid-area: SkillsGrid3;
+}
+
+
+

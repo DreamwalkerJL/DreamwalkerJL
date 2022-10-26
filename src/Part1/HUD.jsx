@@ -18,15 +18,14 @@ export default function HUD() {
     const { scrollYProgress } = useScroll();
     const planeRef = useRef();
 
-    const lol = 50;
     useFrame(({ mouse, delta, clock }) => {
       scrollYProgress.current < 1 &&
         isMort &&
-        camera.position.lerp(vec.set(mouse.x * 1, mouse.y * 1, 3), 0.01);
+        camera.position.lerp(vec.set(mouse.x * 1.25, mouse.y * .4, 5), 0.02);
 
       scrollYProgress.current === 0 && BPlg
         ? camera.position.lerp(vec.set(mouse.x * 0.1, mouse.y * 0.1, 3), 0.01)
-        : camera.position.lerp(vec.set(0, 0, 6), 0.01);
+        : camera.position.lerp(vec.set(0, 0, 4.7), 0.01);
       scrollYProgress.current === 0 && BPlg
         ? camera.rotation.set(mouse.y * 0.1, -mouse.x * 0.2, 0)
         : camera.rotation.set(0, 0, 0);
