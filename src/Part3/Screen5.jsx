@@ -72,7 +72,7 @@ export function Screen5() {
         onFullDisplay={onFullDisplay}
         clickDisplay={clickDisplay}
       />
-      <Plane
+      {/* <Plane
         position={onFullDisplay ? [-4, -4, -4] : [0.006, 0.15, 0.006]}
         visible={false}
         args={[0.97, 0.6]}
@@ -84,8 +84,8 @@ export function Screen5() {
         onClick={clickDisplay}
       >
         <meshBasicMaterial map={XTexture} toneMapped={false} />
-      </Plane>
-      <Plane args={[4, 2.1]}>
+      </Plane> */}
+      <Plane args={[4, 2.1]} >
         <meshStandardMaterial map={AreaImgTexture } />
       </Plane>
       <Plane args={[1.499, 0.598]} position={[0.0058, 0.149, 0.001]} rotation={[0, 0, 0]}>

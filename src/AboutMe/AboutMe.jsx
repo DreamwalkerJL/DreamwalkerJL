@@ -17,7 +17,7 @@ import AboutMeMobileDesign from '../Images/AboutMe/AboutMeMobileDesign.jpg';
 import AboutMeMobileD3 from '../Images/AboutMe/AboutMeMobileD3.jpg';
 import AboutMeMobileCoding from '../Images/AboutMe/AboutMeMobileCoding.jpg';
 import { useMediaQuery } from 'react-responsive';
-export default function AboutMe() {
+export default function AboutMe({scrollToDesign, scrollTo3D, scrollToCoding}) {
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });
@@ -25,7 +25,7 @@ export default function AboutMe() {
     query: '(min-width: 540px)',
   });
   const BPmd = useMediaQuery({
-    query: '(min-width: 768px)',
+    query: '(min-width: 7620px)',
   });
   const BPlg = useMediaQuery({
     query: '(min-width: 976px)',
@@ -73,88 +73,91 @@ export default function AboutMe() {
   function Container() {
     return (
       <div>
-        <div className=" relative left-[10vw] flex h-max w-[68vw]  flex-row flex-wrap gap-[10vw] pt-[70vw] pb-[20vw] opacity-100 lg:left-[0vw] lg:top-[300px] lg:gap-[4.5vw] lg:pt-[310px] lg:pb-[450px] ">
+        <div className=" relative left-[10vw] flex h-max w-[70vw]  flex-row flex-wrap gap-[10vw] pt-[70vw] pb-[20vw] opacity-100 lg:left-[0vw] lg:top-[300px] lg:gap-[4.4vw] lg:pt-[310px] lg:pb-[450px] ">
           <motion.div
-            className="  relative  h-max   w-max border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:top-[8.9vw]  lg:order-2"
+            className="  relative  h-max   w-max border-[4px] lg:border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:top-[8.9vw]  lg:order-2"
             whileHover={{
               backgroundColor: '#ffffff',
               transition: { duration: 0.25 },
             }}
           >
-            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+            <p className="relative  h-max w-[78vw] pr-[20px] pt-[12px] pl-[20px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
               ME MYSELF & I
             </p>
-            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+            <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] lg:pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
               I'm a passionate web designer & front-end developer based in Switzerland. My
               goal is to stay consistent in my desire to improve, so that I'll one day be
               able to make a big impact with my skills.
             </p>
           </motion.div>
           <motion.div
-            className="  relative h-max  w-max cursor-pointer border-[.3vw]  border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-1  "
+            className="  relative h-max  w-max cursor-pointer border-[4px] lg:border-[.3vw]  border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-1  "
             whileHover={{
               backgroundColor: '#ffffff',
               scale: 1.01,
               transition: { duration: 0.25 },
             }}
+            onClick={scrollToDesign}
           >
             <img
-              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              className="h-max w-[78vw] pr-[20px] pt-[20px] pl-[20px] lg:w-[31vw]"
               src={BPsm ? AboutMeDesign : AboutMeMobileDesign}
             />
-            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+            <p className="relative  h-max w-[78vw] pr-[20px] pt-[12px] pl-[20px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
               DESIGN
             </p>
-            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
-              Around 2015 I started setting foot in Graphical Design with Photoshop.
-              Working in the TV Branche as a Graphic & Motion Designer, I've created
-              countless flyer, poster, videos etc. Right now I'm more focused on Web
-              Design.
+            <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] lg:pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              Around 2015 I started setting foot in graphical design with photoshop.
+              Working in the TV branche as a graphic & motion designer, I've created
+              countless flyers, posters, videos etc. Right now I'm more focused on web
+              design.
             </p>
           </motion.div>
 
           <motion.div
-            className="  relative h-max  w-max cursor-pointer border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-3"
+            className="  relative h-max  w-max cursor-pointer border-[4px] lg:border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-3"
             whileHover={{
               backgroundColor: '#ffffff',
               scale: 1.01,
               transition: { duration: 0.25 },
             }}
+            onClick={scrollTo3D}
           >
             <img
-              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              className="h-max w-[78vw] pr-[20px] pt-[20px] pl-[20px] lg:w-[31vw]"
               src={BPsm ? AboutMeD3 : AboutMeMobileD3}
             />
-            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+            <p className="relative  h-max w-[78vw] pr-[20px] pt-[12px] pl-[20px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
               3D
             </p>
-            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+            <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] lg:pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
               In 2020 I started creating Motion Design & Pictures with 3D. It has been
               very joyful working with all kinds of 3D Softwares. With Three.js I was able
               to implement my 3D knowledge with front-end coding. Creating 3D in React has
-              been a gamechanger for me.
+              been a game changer for me.
             </p>
           </motion.div>
           <motion.div
-            className=" relative h-max  w-max cursor-pointer  border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-4"
+            className=" relative h-max  w-max cursor-pointer  border-[4px] lg:border-[.3vw] border-black bg-[#00ffd3] pb-[1vw] font-Oxanium opacity-100 lg:order-4"
             whileHover={{
               backgroundColor: '#ffffff',
               scale: 1.01,
               transition: { duration: 0.25 },
             }}
+            onClick={scrollToCoding}
           >
             <img
-              className="h-max w-[78vw] pr-[8px] pt-[8px] pl-[8px] lg:w-[31vw]"
+              className="h-max w-[78vw] pr-[20px] pt-[20px] pl-[20px] lg:w-[31vw]"
               src={BPsm ? AboutMeCoding : AboutMeMobileCoding}
             />
-            <p className="relative  h-max w-[78vw] pr-[8px] pt-[12px] pl-[8px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
+            <p className="relative  h-max w-[78vw] pr-[20px] pt-[12px] pl-[20px] pb-[4px] text-[22px] font-semibold sm:text-[40px] lg:w-[31vw] ">
               CODING
             </p>
-            <p className="relative left-[8px] w-[78vw]  pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
-              In 2022 I started taking coding more serious. Working with different kinds
+            <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] lg:pr-[2vw] text-[22px] font-extralight leading-6 lg:w-[31vw]">
+              In 2022 I started taking coding more seriously. Working with different kinds
               of front-end frameworks like React and Three.js has been very enjoyable.
-              With help of my previous experience in Design & 3D, I am able to create
-              unique Websites.
+              With help of my previous experience in design & 3D, I am able to create
+              unique websites.
             </p>
           </motion.div>
         </div>

@@ -3,7 +3,13 @@ import { nanoid } from 'nanoid';
 import Skills from './Skills';
 import SkillsMiniFrame from './SkillsMiniFrame';
 import { motion, useScroll } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 export default function SkillsMF({ mainI }) {
+
+  const isMort = useMediaQuery({
+    query: '(max-width: 976px)',
+  });
+
   const Var = {
     offscreen: {
       y: '75px',
@@ -29,8 +35,10 @@ export default function SkillsMF({ mainI }) {
       return 3;
     } else if (mainI === 1) {
       return 1;
+    } else if (mainI === 2 && isMort) {
+      return 1;
     } else if (mainI === 2) {
-      return 2;
+      return 3;
     } else {
       return 0;
     }
@@ -49,7 +57,7 @@ export default function SkillsMF({ mainI }) {
     }
     return Array;
   }
-  console.log(mf);
+
   return (
     <motion.div
       variants={Var}

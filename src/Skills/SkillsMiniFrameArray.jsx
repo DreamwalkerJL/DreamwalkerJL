@@ -8,14 +8,13 @@ import D31 from '../Images/SkillsImg/D31.png';
 import D3Mobile1 from '../Images/SkillsImg/D3Mobile1.jpg';
 import Coding1 from '../Images/SkillsImg/Coding1.png';
 import Coding2 from '../Images/SkillsImg/Coding2.png';
+import Coding3 from '../Images/SkillsImg/Coding3.png';
 import CodingMobile1 from '../Images/SkillsImg/CodingMobile1.jpg';
 import CodingMobile2 from '../Images/SkillsImg/CodingMobile2.jpg';
+import CodingMobile3 from '../Images/SkillsImg/CodingMobile3.jpg';
 import YoutubeIcon from '../Images/Youtube.png';
 import ArtstationIcon from '../Images/Artstation.png';
 import DWIcon from '../Images/DWIcon.png';
-
-
-
 
 export default [
   [
@@ -41,11 +40,11 @@ export default [
     },
     {
       text1: 'Youtube Battle Music',
-      text2: 'Creating animations and effects',
+      text2: 'Creating Animations and Effects',
       text3: '2020 - 2022',
       backgroundImage: Design1,
       backgroundMobileImage: DesignMobile1,
-      link: 'https://www.youtube.com/channel/UCZOcWwzSXqlGfS2H4syDFWg',
+      link: 'https://www.youtube.com/@DWBattleMusic',
       linkText: 'Watch on Youtube',
       linkIcon: YoutubeIcon,
     },
@@ -64,6 +63,16 @@ export default [
   ],
   [
     {
+      text1: 'Notes App',
+      text2: 'Simple MERN Stack App',
+      text3: '2022',
+      backgroundImage: Coding3,
+      backgroundMobileImage: CodingMobile3,
+      link: 'https://mernappjl.herokuapp.com/',
+      linkText: 'View on MernAppJL',
+      linkIcon: DWIcon,
+    },
+    {
       text1: 'Moon',
       text2: 'Interactive FrontPage',
       text3: '2022',
@@ -73,7 +82,8 @@ export default [
       linkIntern: 2,
       linkText: 'View on DreamwalkerJL',
       linkIcon: DWIcon,
-    },    {
+    },
+    {
       text1: '3D Gallery',
       text2: 'Interactive Gallery',
       text3: '2022',
@@ -84,7 +94,5 @@ export default [
       linkText: 'View on DreamwalkerJL',
       linkIcon: DWIcon,
     },
-
   ],
-
 ];

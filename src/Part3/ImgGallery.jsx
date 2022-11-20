@@ -11,7 +11,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 1 ? true : false}
       />
@@ -20,7 +20,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 2 ? true : false}
       />
@@ -29,7 +29,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 3 ? true : false}
       />
@@ -38,7 +38,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 4 ? true : false}
       />
@@ -47,7 +47,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 5 ? true : false}
       />
@@ -56,7 +56,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 6 ? true : false}
       />
@@ -65,7 +65,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 7 ? true : false}
       />
@@ -74,7 +74,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 8 ? true : false}
       />
@@ -83,7 +83,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 9 ? true : false}
       />
@@ -92,7 +92,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 10 ? true : false}
       />
@@ -101,7 +101,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 11 ? true : false}
       />
@@ -110,7 +110,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 12 ? true : false}
       />
@@ -119,7 +119,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 13 ? true : false}
       />
@@ -128,7 +128,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 14 ? true : false}
       />
@@ -137,7 +137,7 @@ export default function ImgGallery({ImgState, onFullDisplay, clickDisplay}) {
         transparent
         toneMapped={false}
         position={[0.006, 0.15, 0.002]}
-        scale={[1.5, 0.6]}
+        scale={[.9, 0.48276]}
         opacity={1}
         visible={ImgState === 15 ? true : false}
       />

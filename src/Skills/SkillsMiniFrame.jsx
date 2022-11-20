@@ -23,7 +23,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
   const BPxl = useMediaQuery({
     query: '(min-width: 1300px)',
   });
-  console.log(Array);
+
   const Var = {
     offscreen: {
       y: '75px',
@@ -56,7 +56,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
       opacity: 1,
     },
   };
-  console.log(i);
+
   const navigate = useNavigate();
   function scrollToGallery() {
    
@@ -109,7 +109,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
         </p>
         <img
           src={SMFA[mainI][i].linkIcon}
-          className="h-max w-[20px] lg:order-1 lg:w-[42px] xxl:w-[65px]"
+          className="h-[20px] lg:h-max w-[20px] lg:order-1 lg:w-[42px] xxl:w-[65px]"
         />
       </motion.div>
     </motion.div>

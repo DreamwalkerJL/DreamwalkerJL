@@ -74,7 +74,11 @@ export default function Part1() {
 
   function Loader() {
     const { active, progress, errors, item, loaded, total } = useProgress();
-
+    const [isFailed, isFailedSet] = useState(false)
+    useFrame((delta)=>{
+      delta.clock.elapsedTime > 5 && isFailedSet(true)
+    })
+  
     return (
       <Html center>
         <div className="relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black text-center  font-Dreamscape text-4xl text-white">
@@ -87,16 +91,17 @@ export default function Part1() {
               loop
               keepLastFrame
             />
-            <p>{Math.floor(progress)} % loaded</p>
+            {isFailed ? <p>Loading failed - Please refresh the browser</p> : <p>{Math.floor(progress)} % loaded</p>}
           </div>
         </div>
       </Html>
     );
   }
 
+
   return (
     <div ref={divRef} className=" h-full w-full">
-      <Canvas dpr={dpr} camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
+      <Canvas  camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
       <Suspense fallback={<Loader />}>
         <CanvasDPR />
         <ambientLight intensity={0.5} />

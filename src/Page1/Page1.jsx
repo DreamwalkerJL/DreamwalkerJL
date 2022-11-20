@@ -1,20 +1,16 @@
 import {
-  Box,
-  Circle,
   Cloud,
   Environment,
   Float,
-  OrbitControls,
+  Html,
   PerspectiveCamera,
-  Stats,
   Text,
-  Text3D,
+  useProgress,
 } from '@react-three/drei';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { Select, Selection } from '@react-three/postprocessing';
 import { Depth, Fresnel, LayerMaterial } from 'lamina';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useRef, useState,} from 'react';
 import * as THREE from 'three';
 
 import { Moon } from '../3D/Moon';
@@ -22,7 +18,10 @@ import { Effects } from './Effects';
 import { Stars } from './Stars';
 import { TextDW } from './TextDW';
 import Trailer from './Trail';
+import MoonLoading from '../Images/MoonLoading.png'
+import { useNavigate } from 'react-router-dom';
 export default function Page1() {
+  const navigate = useNavigate()
 
   function EnvLamia() {
     const ref = useRef();
@@ -104,9 +103,30 @@ export default function Page1() {
       />
     );
   }
+
+  function Loader() {
+    const { active, progress, errors, item, loaded, total } = useProgress();
+    const [isFailed, isFailedSet] = useState(false)
+    useFrame((delta)=>{
+      delta.clock.elapsedTime > 5 && isFailedSet(true)
+    })
+  
+    return (
+      <Html center>
+        <div className="relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black text-center  font-Dreamscape text-4xl text-white">
+          <div className="relative bottom-[5vw]">
+            <img src={MoonLoading}/>
+            {isFailed ? <p>Loading failed - Please refresh the browser</p> : <p>{Math.floor(progress)} % loaded</p>}
+          </div>
+        </div>
+      </Html>
+    );
+  }
+
   return (
     <div className="absolute h-full w-full ">
       <Canvas>
+      <Suspense fallback={<Loader />}>
         <MainCamera />
         <ambientLight />
         <Stars />
@@ -143,11 +163,15 @@ export default function Page1() {
         <Trailer />
         <Moon />
         <Effects />
+        <Text font={'Mysteria.otf'} fontSize={6.180469715698393} position={[-133, 40, 0]} onClick={() => navigate('/')}>
+          EXIT
+        </Text>
         <Text font={'Namita.otf'} fontSize={6.180469715698393} position={[0, -45, 0]}>
           by Joshua Lim
         </Text>
         <TextDW />
         <EnvLamia />
+        </Suspense>
       </Canvas>
     </div>
   );

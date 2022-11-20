@@ -15,10 +15,11 @@ import D3Icon7 from '../Images/SkillsImg/D3Icon7.png';
 import CodingMainImg from '../Images/SkillsImg/CodingMain.jpg';
 import CodingIcon1 from '../Images/SkillsImg/CodingIcon1.png';
 import CodingIcon2 from '../Images/SkillsImg/CodingIcon2.png';
-import CodingIcon3 from '../Images/SkillsImg/CodingIcon3.png';
+import CodingIcon3 from '../Images/SkillsImg/CodingIcon3.svg';
 import CodingIcon4 from '../Images/SkillsImg/CodingIcon4.png';
 import CodingIcon5 from '../Images/SkillsImg/CodingIcon5.png';
 import CodingIcon6 from '../Images/SkillsImg/CodingIcon6.png';
+import CodingIcon7 from '../Images/SkillsImg/CodingIcon7.svg';
 export default [
   {
     title: 'Design',
@@ -37,7 +38,7 @@ export default [
   },
   {
     title: '3D',
-    subTitle: 'Creating Character & Environment Images with 3D Softwares',
+    subTitle: 'Character & Environment Images with 3D Softwares',
     titleIcon1: D3Icon1,
     titleIcon2: D3Icon2,
     titleIcon3: D3Icon3,
@@ -63,12 +64,14 @@ export default [
     titleIcon4: CodingIcon4,
     titleIcon5: CodingIcon5,
     titleIcon6: CodingIcon6,
-    titleIconLink1: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics',
-    titleIconLink2: 'https://developer.mozilla.org/en-US/docs/Web/CSS#:~:text=CSS%20(Cascading%20Style%20Sheets)%20is,animations%20and%20other%20decorative%20features.',
-    titleIconLink3: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics',
+    titleIcon7: CodingIcon7,
+    titleIconLink1: 'https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/',
+    titleIconLink2: 'https://nodejs.org/en/',
+    titleIconLink3: 'https://www.mongodb.com/',
     titleIconLink4: 'https://reactjs.org/',
     titleIconLink5: 'https://threejs.org/',
     titleIconLink6: 'https://www.typescriptlang.org/',
+    titleIconLink7: 'https://redux.js.org/',
     mainFrame:  CodingMainImg ,
   },
 ];
