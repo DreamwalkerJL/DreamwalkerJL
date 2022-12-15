@@ -68,7 +68,7 @@ export default [
       text3: '2022',
       backgroundImage: Coding3,
       backgroundMobileImage: CodingMobile3,
-      link: 'https://mernappjl.herokuapp.com/',
+      link: 'https://notesdw.up.railway.app/login',
       linkText: 'View on MernAppJL',
       linkIcon: DWIcon,
     },
