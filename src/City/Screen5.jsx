@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useGLTF, useVideoTexture } from '@react-three/drei';
 import CyberVideo from '../Images/CyberBackground3.mp4';
 export function Screen5(props) {

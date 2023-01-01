@@ -15,14 +15,12 @@ import CyberVideo from '../Images/AreaScreenVideo.mp4';
 import * as THREE from 'three';
 import XImg from '../Images/X.jpg';
 import Dirt from '../Images/ScreenBackgroundDirt.png';
-import AreaVideo from '../Images/Area.mp4';
 import ImgGallery from './ImgGallery';
 import ExitGallery from '../Images/ExitGallery.png';
 import { useNavigate } from 'react-router-dom';
-import AreaImg from '../Images/Area.jpg'
+import AreaImg from '../Images/Area.jpg';
 
 export function Screen5() {
-  const Area = useVideoTexture(AreaVideo);
   const ScreenVideo = useVideoTexture(CyberVideo);
   const [imgState, imgStateSet] = useState(1);
   const [onFullDisplay, onFullDisplaySet] = useState(false);
@@ -72,21 +70,8 @@ export function Screen5() {
         onFullDisplay={onFullDisplay}
         clickDisplay={clickDisplay}
       />
-      {/* <Plane
-        position={onFullDisplay ? [-4, -4, -4] : [0.006, 0.15, 0.006]}
-        visible={false}
-        args={[0.97, 0.6]}
-        onClick={clickDisplay}
-      />
-      <Plane
-        args={[0.15, 0.15]}
-        position={onFullDisplay ? [0.58, 0.525, 0.009] : [-4, -4, -4]}
-        onClick={clickDisplay}
-      >
-        <meshBasicMaterial map={XTexture} toneMapped={false} />
-      </Plane> */}
-      <Plane args={[4, 2.1]} >
-        <meshStandardMaterial map={AreaImgTexture } />
+      <Plane args={[4, 2.1]}>
+        <meshStandardMaterial map={AreaImgTexture} />
       </Plane>
       <Plane args={[1.499, 0.598]} position={[0.0058, 0.149, 0.001]} rotation={[0, 0, 0]}>
         <meshStandardMaterial

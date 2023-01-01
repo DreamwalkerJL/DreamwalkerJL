@@ -1,51 +1,10 @@
 import { motion, useScroll } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
-import AboutMeTitle from '../Images/AboutMeTitle.json';
-import HealthySVG from '../Images/AboutMeSVG/Healthy.json';
-import NerdSVG from '../Images/AboutMeSVG/Nerd.json';
-import TechnologySVG from '../Images/AboutMeSVG/Technology.json';
-import HealthyMobileSVG from '../Images/AboutMeSVG/HealthyMobile.json';
-import CreativeMobileSVG from '../Images/AboutMeSVG/CreativeMobile.json';
-import TechnologyMobileSVG from '../Images/AboutMeSVG/TechnologyMobile.json';
-import CreativeSVG from '../Images/AboutMeSVG/Creative.json';
-import { Player } from '@lottiefiles/react-lottie-player';
-import AboutMeImg from '../Images/AboutMeImg.jpg';
+import { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import DesignMainImg from '../Images/SkillsImg/DesignMain.jpg';
-import Design1 from '../Images/SkillsImg/Design1.png';
-import Design2 from '../Images/SkillsImg/Design2.png';
-import Design3 from '../Images/SkillsImg/Design3.png';
-import DesignMobile1 from '../Images/SkillsImg/DesignMobile1.jpg';
-import DesignMobile2 from '../Images/SkillsImg/DesignMobile2.jpg';
-import DesignMobile3 from '../Images/SkillsImg/DesignMobile3.jpg';
-import DesignIcon1 from '../Images/SkillsImg/DesignIcon1.png';
-import DesignIcon2 from '../Images/SkillsImg/DesignIcon2.png';
-import DesignIcon3 from '../Images/SkillsImg/DesignIcon3.png';
-import DesignIcon4 from '../Images/SkillsImg/DesignIcon4.png';
-import DesignIcon5 from '../Images/SkillsImg/DesignIcon5.png';
-import D3MainImg from '../Images/SkillsImg/D3Main.jpg';
-import D331 from '../Images/SkillsImg/D31.png';
-import { useNavigate } from 'react-router-dom';
-import SkillFrameDesign from '../Images/SkillFrameDesign.json';
-import YoutubeIcon from '../Images/Youtube.png';
-import ArtstationIcon from '../Images/Artstation.png';
 import Array from './SkillsArray';
 import SkillsMiniFrameMap from './SkillsMiniFrameMap';
 
 export default function Skills({ i, deRef, d3Ref, coRef }) {
-  const isMort = useMediaQuery({
-    query: '(max-width: 976px)',
-  });
-  const BPsm = useMediaQuery({
-    query: '(min-width: 540px)',
-  });
-  const BPlg = useMediaQuery({
-    query: '(min-width: 976px)',
-  });
-  const BPxl = useMediaQuery({
-    query: '(min-width: 1300px)',
-  });
-
   const Var = {
     offscreen: {
       y: '75px',
@@ -66,49 +25,14 @@ export default function Skills({ i, deRef, d3Ref, coRef }) {
     hover: {},
   };
 
-  const VarMobile = {
-    offscreen: {
-      x: '-20%',
-      opacity: 0,
-    },
-    onscreen: {
-      x: '0%',
-      opacity: 1,
-
-      transition: {
-        type: 'linear',
-        duration: 2,
-        staggerChildren: 1,
-        delayChildren: 0.5,
-      },
-    },
-  };
-
   function Design() {
     const iconVar = {
       whilehover: {
         scale: 1.2,
       },
     };
-    const miniFrameVar = {
-      hover: {
-        // backgroundColor:'red',
-
-        filter: 'blur(3px) brightness(20%)',
-        transition: {},
-      },
-    };
-    const miniFrameLinkVar = {
-      hover: {
-        opacity: 1,
-      },
-    };
 
     const divRef = useRef();
-    const { scrollYProgress } = useScroll({
-      target: divRef,
-      offset: ['start end', 'end 35%'],
-    });
     const refs = [deRef, d3Ref, coRef];
     return (
       <div ref={divRef}>
@@ -208,7 +132,7 @@ export default function Skills({ i, deRef, d3Ref, coRef }) {
               className="   relative w-[80vw] border-2 border-[#f9ef02] lg:w-[800px] xl:w-[1036.8px] xxl:w-[60vw] "
             />
           </motion.div>
-              
+
           <SkillsMiniFrameMap mainI={i} />
         </motion.div>
       </div>

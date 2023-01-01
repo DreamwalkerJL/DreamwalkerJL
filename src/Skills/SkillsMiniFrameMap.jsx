@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import Skills from './Skills';
 import SkillsMiniFrame from './SkillsMiniFrame';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 export default function SkillsMF({ mainI }) {
-
   const isMort = useMediaQuery({
     query: '(max-width: 976px)',
   });

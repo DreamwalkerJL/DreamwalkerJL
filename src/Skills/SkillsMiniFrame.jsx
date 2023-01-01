@@ -11,17 +11,8 @@ import ArtstationIcon from '../Images/Artstation.png';
 import SMFA from './SkillsMiniFrameArray';
 import { useNavigate } from 'react-router-dom';
 export default function SkillsMiniFrame({ mainI, i }) {
-  const isMort = useMediaQuery({
-    query: '(max-width: 976px)',
-  });
-  const BPsm = useMediaQuery({
-    query: '(min-width: 540px)',
-  });
   const BPlg = useMediaQuery({
     query: '(min-width: 976px)',
-  });
-  const BPxl = useMediaQuery({
-    query: '(min-width: 1300px)',
   });
 
   const Var = {
@@ -45,8 +36,6 @@ export default function SkillsMiniFrame({ mainI, i }) {
   };
   const miniFrameVar = {
     hover: {
-      // backgroundColor:'red',
-
       filter: 'blur(3px) brightness(20%)',
       transition: {},
     },
@@ -59,11 +48,9 @@ export default function SkillsMiniFrame({ mainI, i }) {
 
   const navigate = useNavigate();
   function scrollToGallery() {
-   
     navigate('/gallery');
   }
   function scrollToMoon() {
-   
     navigate('/moon');
   }
   function isLinkIntern() {
@@ -72,7 +59,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
     } else if (SMFA[mainI][i].linkIntern === 2) {
       return scrollToMoon();
     } else {
-      return window.open(SMFA[mainI][i].link, '_blank')
+      return window.open(SMFA[mainI][i].link, '_blank');
     }
   }
   return (
@@ -80,7 +67,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
       variants={Var}
       className="relative flex w-max cursor-pointer flex-col items-center bg-[#f9ef02] lg:h-[150.5px] lg:bg-opacity-0"
       whileHover={'hover'}
-      onClick={()=>isLinkIntern()}
+      onClick={() => isLinkIntern()}
     >
       <motion.img
         src={BPlg ? SMFA[mainI][i].backgroundImage : SMFA[mainI][i].backgroundMobileImage}
@@ -96,9 +83,6 @@ export default function SkillsMiniFrame({ mainI, i }) {
         {SMFA[mainI][i].text2}
         <br />
         {SMFA[mainI][i].text3}
-        {/* Fantasy Images <br /> Creating and Editing Pictures
-        <br />
-        2015 - 2019 */}
       </motion.p>
       <motion.div
         variants={BPlg && miniFrameLinkVar}
@@ -109,7 +93,7 @@ export default function SkillsMiniFrame({ mainI, i }) {
         </p>
         <img
           src={SMFA[mainI][i].linkIcon}
-          className="h-[20px] lg:h-max w-[20px] lg:order-1 lg:w-[42px] xxl:w-[65px]"
+          className="h-[20px] w-[20px] lg:order-1 lg:h-max lg:w-[42px] xxl:w-[65px]"
         />
       </motion.div>
     </motion.div>

@@ -1,7 +1,6 @@
 import { Box, Html, Image, Plane, useProgress } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
-import React, { Suspense, useRef, useState } from 'react';
-import * as THREE from 'three';
+import { Suspense, useRef, useState } from 'react';
 import { Screen5 } from './Screen5';
 import TitlePic from '../Images/Title1.png';
 import HUD from './HUD';
@@ -73,15 +72,15 @@ export default function Part1() {
   }
 
   function Loader() {
-    const { active, progress, errors, item, loaded, total } = useProgress();
-    const [isFailed, isFailedSet] = useState(false)
-    useFrame((delta)=>{
-      delta.clock.elapsedTime > 5 && isFailedSet(true)
-    })
-  
+    const { progress } = useProgress();
+    const [isFailed, isFailedSet] = useState(false);
+    useFrame((delta) => {
+      delta.clock.elapsedTime > 5 && isFailedSet(true);
+    });
+
     return (
       <Html center>
-        <div className="relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black text-center  font-Dreamscape text-4xl text-white">
+        <div className="font-Dreamscape relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black  text-center text-4xl text-white">
           <div className="relative bottom-[5vw]">
             <Player
               src={LoadingIcon}
@@ -91,25 +90,28 @@ export default function Part1() {
               loop
               keepLastFrame
             />
-            {isFailed ? <p>Loading failed - Please refresh the browser</p> : <p>{Math.floor(progress)} % loaded</p>}
+            {isFailed ? (
+              <p>Loading failed - Please refresh the browser</p>
+            ) : (
+              <p>{Math.floor(progress)} % loaded</p>
+            )}
           </div>
         </div>
       </Html>
     );
   }
 
-
   return (
     <div ref={divRef} className=" h-full w-full">
-      <Canvas  camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
-      <Suspense fallback={<Loader />}>
-        <CanvasDPR />
-        <ambientLight intensity={0.5} />
-        <HUD />
-        <Title />
-        <color attach="background" args={['#000000']} />
-        <BGEdge />
-        <Screen5 />
+      <Canvas camera={{ position: [0, 0, 4], fov: 20 }} ref={canvasRef}>
+        <Suspense fallback={<Loader />}>
+          <CanvasDPR />
+          <ambientLight intensity={0.5} />
+          <HUD />
+          <Title />
+          <color attach="background" args={['#000000']} />
+          <BGEdge />
+          <Screen5 />
         </Suspense>
       </Canvas>
     </div>

@@ -21,30 +21,28 @@ export default function HUD() {
     const [countRot, setCountRot] = useState(0);
 
     const incrementCountPos = () => {
-      if(scrollYProgress.current === 0 && countPos < 0.1) {
-        return setCountPos(countPos + 0.0005)
+      if (scrollYProgress.current === 0 && countPos < 0.1) {
+        return setCountPos(countPos + 0.0005);
       } else if (scrollYProgress.current === 0 && countPos < 0.2) {
-        setCountPos(0.1)
+        setCountPos(0.1);
       } else {
-        setCountPos(0)
+        setCountPos(0);
       }
-   
     };
 
     const incrementCountRot = () => {
-      if(scrollYProgress.current === 0 && countRot < 0.2) {
-        return setCountRot(countRot + 0.0005)
+      if (scrollYProgress.current === 0 && countRot < 0.2) {
+        return setCountRot(countRot + 0.0005);
       } else if (scrollYProgress.current === 0 && countRot < 0.3) {
-        setCountRot(0.2)
+        setCountRot(0.2);
       } else {
-        setCountRot(0)
+        setCountRot(0);
       }
     };
 
     useFrame(({ mouse, delta, clock }) => {
-
-      scrollYProgress.current < 0.1 && incrementCountPos()
-      scrollYProgress.current < 0.1 && incrementCountRot()
+      scrollYProgress.current < 0.1 && incrementCountPos();
+      scrollYProgress.current < 0.1 && incrementCountRot();
       scrollYProgress.current < 1 &&
         isMort &&
         camera.position.lerp(vec.set(mouse.x * 1.25, mouse.y * 0.4, 5), 0.02);

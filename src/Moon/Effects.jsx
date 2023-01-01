@@ -2,9 +2,6 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { useMediaQuery } from 'react-responsive';
 
 export function Effects() {
-  const isMort = useMediaQuery({
-    query: '(max-width: 976px)',
-  });
   const BPlg = useMediaQuery({
     query: '(min-width: 976px)',
   });

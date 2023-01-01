@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SkillFrame3D from '../Images/SkillFrame3D.json';
 import SkillFrameDesign from '../Images/SkillFrameDesign.json';
 import SkillFrameCoding from '../Images/SkillFrameCoding.json';
@@ -254,7 +254,6 @@ export default function () {
                   width={200}
                   onClick={() => navigate('/gallery')}
                   whileHover={{ scale: 1.1 }}
-                  
                 />
               </div>
             </div>

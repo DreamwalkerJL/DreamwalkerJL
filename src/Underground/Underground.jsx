@@ -1,10 +1,6 @@
-import {
-  Html,
-  useProgress,
-} from '@react-three/drei';
-import { Canvas, useFrame, } from '@react-three/fiber';
+import { Html, useProgress } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
 import React, { Suspense, useRef } from 'react';
-import * as THREE from 'three';
 import { Screen5 } from './Screen5';
 import HUD from './HUD';
 import LoadingIcon from '../Images/Loading.json';
@@ -18,7 +14,7 @@ export default function Part3() {
 
     return (
       <Html center>
-        <div className="relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black text-center  font-Dreamscape text-4xl text-white">
+        <div className="font-Dreamscape relative flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black  text-center text-4xl text-white">
           <div className="relative bottom-[5vw]">
             <Player
               src={LoadingIcon}

@@ -1,7 +1,7 @@
 import { Text, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Depth, Fresnel, LayerMaterial } from 'lamina';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 export function TextDW(props) {
   const ref = useRef();
   const gradient = 0.2;
