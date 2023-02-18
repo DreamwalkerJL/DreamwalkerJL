@@ -42,7 +42,7 @@ function App() {
             scrollToCoding={scrollToCoding}
           />
 
-          <div className="relative z-0  h-max  w-full  bg-SkillsBG  bg-cover bg-fixed bg-[center_top] bg-no-repeat pt-[250px]   ">
+          <div className="relative z-0  h-max w-full  bg-SkillsBG  bg-cover bg-fixed bg-[center_top] bg-no-repeat pt-[250px]   ">
             <SkillsMap
               deRef={skillsDesignRef}
               d3Ref={skills3DRef}

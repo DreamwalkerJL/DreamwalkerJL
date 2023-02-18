@@ -9,9 +9,11 @@ import D3Mobile1 from '../Images/SkillsImg/D3Mobile1.jpg';
 import Coding1 from '../Images/SkillsImg/Coding1.png';
 import Coding2 from '../Images/SkillsImg/Coding2.png';
 import Coding3 from '../Images/SkillsImg/Coding3.png';
+import Coding4 from '../Images/SkillsImg/Coding4.png';
 import CodingMobile1 from '../Images/SkillsImg/CodingMobile1.jpg';
 import CodingMobile2 from '../Images/SkillsImg/CodingMobile2.jpg';
 import CodingMobile3 from '../Images/SkillsImg/CodingMobile3.jpg';
+import CodingMobile4 from '../Images/SkillsImg/CodingMobile4.jpg';
 import YoutubeIcon from '../Images/Youtube.png';
 import ArtstationIcon from '../Images/Artstation.png';
 import DWIcon from '../Images/DWIcon.png';
@@ -84,13 +86,12 @@ export default [
       linkIcon: DWIcon,
     },
     {
-      text1: '3D Gallery',
-      text2: 'Interactive Gallery',
-      text3: '2022',
-      backgroundImage: Coding2,
-      backgroundMobileImage: CodingMobile2,
-      link: 'https://www.artstation.com/dreamwalkerworld',
-      linkIntern: 1,
+      text1: 'Tic Tac Toe',
+      text2: 'Play VS an unbeatable AI',
+      text3: '2023',
+      backgroundImage: Coding4,
+      backgroundMobileImage: CodingMobile4,
+      link: 'https://tictactoegame.up.railway.app/',
       linkText: 'View on DreamwalkerJL',
       linkIcon: DWIcon,
     },
