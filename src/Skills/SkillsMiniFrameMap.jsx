@@ -34,7 +34,7 @@ export default function SkillsMF({ mainI }) {
     } else if (mainI === 1) {
       return 1;
     } else if (mainI === 2 && isMort) {
-      return 1;
+      return 2;
     } else if (mainI === 2) {
       return 3;
     } else {
