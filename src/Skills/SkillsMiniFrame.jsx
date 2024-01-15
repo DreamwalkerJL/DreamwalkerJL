@@ -1,13 +1,7 @@
 import React from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
-import Design1 from '../Images/SkillsImg/Design1.png';
-import Design2 from '../Images/SkillsImg/Design2.png';
-import Design3 from '../Images/SkillsImg/Design3.png';
-import DesignMobile1 from '../Images/SkillsImg/DesignMobile1.jpg';
-import DesignMobile2 from '../Images/SkillsImg/DesignMobile2.jpg';
-import YoutubeIcon from '../Images/Youtube.png';
-import ArtstationIcon from '../Images/Artstation.png';
+
 import SMFA from './SkillsMiniFrameArray';
 import { useNavigate } from 'react-router-dom';
 export default function SkillsMiniFrame({ mainI, i }) {
