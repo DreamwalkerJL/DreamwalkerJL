@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
-
 import SMFA from './SkillsMiniFrameArray';
 import { useNavigate } from 'react-router-dom';
 export default function SkillsMiniFrame({ mainI, i }) {
