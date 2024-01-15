@@ -14,7 +14,7 @@ import CodingMobile1 from '../Images/SkillsImg/CodingMobile1.jpg';
 
 import CodingMobile3 from '../Images/SkillsImg/CodingMobile3.jpg';
 import CodingMobile4 from '../Images/SkillsImg/CodingMobile4.jpg';
-import YoutubeIcon from '../Images/Youtube.png';
+import YoutubeIcon from '../Images/YoutubeIcon.png';
 import ArtstationIcon from '../Images/Artstation.png';
 import DWIcon from '../Images/DWIcon.png';
 
