@@ -26,9 +26,9 @@ export default function AboutMe({ scrollToDesign, scrollTo3D, scrollToCoding }) 
               ME MYSELF & I
             </p>
             <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] text-[22px] font-extralight leading-6 lg:w-[31vw] lg:pr-[2vw]">
-              I'm a passionate web designer & front-end developer based in Switzerland. My
-              goal is to stay consistent in my desire to improve, so that I'll one day be
-              able to make a big impact with my skills.
+              I'm a web developer based in Switzerland with full-stack capabilities. I'm
+              dedicated to enhancing my skills and expanding my knowledge in the field. My
+              goal is to use my expertise in web development to make a meaningful impact.
             </p>
           </motion.div>
           <motion.div
@@ -48,9 +48,10 @@ export default function AboutMe({ scrollToDesign, scrollTo3D, scrollToCoding }) 
               DESIGN
             </p>
             <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] text-[22px] font-extralight leading-6 lg:w-[31vw] lg:pr-[2vw]">
-              Around 2015 I started setting foot in graphical design with photoshop.
-              Working in the TV branche as a graphic & motion designer, I've created
-              countless flyers, posters, videos etc. Right now I'm more focused on web
+              Back in 2015, I began my journey in the world of graphical design, starting
+              with Photoshop. Working in the TV industry as a graphic and motion designer,
+              I had the privilege of crafting numerous flyers, posters, videos, and more.
+              While my roots are in graphic design, my focus has since shifted towards web
               design.
             </p>
           </motion.div>
@@ -72,10 +73,12 @@ export default function AboutMe({ scrollToDesign, scrollTo3D, scrollToCoding }) 
               3D
             </p>
             <p className="relative left-[20px] w-[78vw] pr-[50px] pb-[10px] text-[22px] font-extralight leading-6 lg:w-[31vw] lg:pr-[2vw]">
-              In 2020 I started creating Motion Design & Pictures with 3D. It has been
-              very joyful working with all kinds of 3D Softwares. With Three.js I was able
-              to implement my 3D knowledge with front-end coding. Creating 3D in React has
-              been a game changer for me.
+              In 2020, I delved into the exciting realm of Motion Design and 3D Art.
+              Working with various 3D software has been an immensely rewarding experience.
+              Notably, my exploration led me to Three.js, allowing me to seamlessly
+              integrate my 3D expertise with front-end coding. Implementing 3D elements in
+              React has been a transformative experience, opening up new possibilities and
+              expanding my skillset.
             </p>
           </motion.div>
           <motion.div

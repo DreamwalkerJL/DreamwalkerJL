@@ -41,16 +41,16 @@ export default function Skills({ i, deRef, d3Ref, coRef }) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           ref={refs[i]}
-          className="  relative flex h-max w-full  flex-col gap-[10vw] lg:top-0 lg:h-[80vh]    "
+          className="  relative flex h-max w-full  flex-col gap-[10vw] lg:top-0 lg:h-[80vh]  "
         >
-          <div className="relative left-[10vw] z-10 flex h-max w-[80vw] flex-col gap-[2vw] overflow-hidden bg-[#f9ef02] bg-auto bg-left text-center lg:left-0 lg:top-[35px] lg:h-[240px] lg:w-[30vw] lg:gap-[18px] lg:bg-opacity-0 lg:bg-SkillsTitleBG lg:text-start xl:h-[271px] xl:gap-[12px] xl:bg-cover  xxl:h-[300px] xxl:gap-[20px]">
+          <div className="relative left-[10vw]  z-10 flex h-max w-[80vw] flex-col gap-[2vw] overflow-hidden bg-[#f9ef02] bg-auto bg-left text-center lg:left-0 lg:top-[35px] lg:h-[240px] lg:w-[500px] lg:gap-[18px] lg:bg-opacity-0 lg:bg-SkillsTitleBG lg:text-start xl:h-[271px] xl:gap-[12px] xl:bg-cover  xxl:h-[300px] xxl:gap-[20px]">
             <p className="relative pt-[2vw] font-Oxanium text-[22px] font-semibold lg:left-[50px] lg:top-[12px] lg:p-0 lg:text-[40px] xl:text-[56px]">
               {Array[i].title}
             </p>
-            <div className="relative flex justify-center lg:justify-start">
-              <div className="relative bottom-0 h-[1px] w-[70vw]  bg-black lg:left-[53px] lg:w-[30vw]"></div>
+            <div className="relative flex justify-center lg:justify-start ">
+              <div className="relative bottom-0 h-[1px] w-[70vw]  bg-black lg:left-[53px] lg:w-[30vw] "></div>
             </div>
-            <p className="relative pl-[20px] pr-[20px] font-Oxanium text-[14px] font-extralight sm:text-[16px]  lg:left-[50px]  lg:w-[25vw] lg:p-0  xl:text-[22px] xxl:text-[30px] xxl:leading-8">
+            <p className="relative pl-[20px]  pr-[20px] font-Oxanium text-[14px] font-extralight sm:text-[16px]  lg:left-[50px] w-[400px]  lg:w-[400px] xl:w-[400px] lg:p-0  xl:text-[22px] xxl:text-[30px] xxl:leading-8">
               {Array[i].subTitle}
             </p>
             <div className="relative flex flex-row justify-center gap-[5px] pb-[2.5vw] lg:bottom-[0px] lg:left-[50px] lg:justify-start  xl:bottom-[0px]  ">
@@ -118,6 +118,54 @@ export default function Skills({ i, deRef, d3Ref, coRef }) {
               ) : (
                 false
               )}
+              {Array[i].titleIcon8 ? (
+                <a href={Array[i].titleIconLink8} target="_blank" rel="Ai">
+                  <motion.img
+                    variants={iconVar}
+                    whileHover={'whilehover'}
+                    src={Array[i].titleIcon8}
+                    className="relative w-[30px] cursor-pointer "
+                  />
+                </a>
+              ) : (
+                false
+              )}
+              {Array[i].titleIcon9 ? (
+                <a href={Array[i].titleIconLink9} target="_blank" rel="Ai">
+                  <motion.img
+                    variants={iconVar}
+                    whileHover={'whilehover'}
+                    src={Array[i].titleIcon9}
+                    className="relative w-[30px] cursor-pointer "
+                  />
+                </a>
+              ) : (
+                false
+              )}
+              {Array[i].titleIcon10 ? (
+                <a href={Array[i].titleIconLink10} target="_blank" rel="Ai">
+                  <motion.img
+                    variants={iconVar}
+                    whileHover={'whilehover'}
+                    src={Array[i].titleIcon10}
+                    className="relative w-[30px] cursor-pointer "
+                  />
+                </a>
+              ) : (
+                false
+              )}
+              {Array[i].titleIcon11 ? (
+                <a href={Array[i].titleIconLink11} target="_blank" rel="Ai">
+                  <motion.img
+                    variants={iconVar}
+                    whileHover={'whilehover'}
+                    src={Array[i].titleIcon11}
+                    className="relative w-[30px] cursor-pointer "
+                  />
+                </a>
+              ) : (
+                false
+              )}
             </div>
           </div>
           <motion.div
@@ -129,7 +177,7 @@ export default function Skills({ i, deRef, d3Ref, coRef }) {
           >
             <img
               src={Array[i].mainFrame}
-              className="   relative w-[80vw] border-2 border-[#f9ef02] lg:w-[800px] xl:w-[1036.8px] xxl:w-[60vw] "
+              className="   relative w-[80vw] border-2 border-[#f9ef02] lg:w-[950px] xl:w-[1000px] xxl:w-[1300px] "
             />
           </motion.div>
 

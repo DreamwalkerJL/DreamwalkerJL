@@ -20,6 +20,10 @@ import CodingIcon4 from '../Images/SkillsImg/CodingIcon4.png';
 import CodingIcon5 from '../Images/SkillsImg/CodingIcon5.png';
 import CodingIcon6 from '../Images/SkillsImg/CodingIcon6.png';
 import CodingIcon7 from '../Images/SkillsImg/CodingIcon7.svg';
+import CodingIcon8 from '../Images/SkillsImg/CodingIcon8.png';
+import CodingIcon9 from '../Images/SkillsImg/CodingIcon9.png';
+import CodingIcon10 from '../Images/SkillsImg/CodingIcon10.svg';
+import CodingIcon11 from '../Images/SkillsImg/CodingIcon11.svg';
 export default [
   {
     title: 'Design',
@@ -57,7 +61,7 @@ export default [
   },
   {
     title: 'Coding',
-    subTitle: 'Front-End / Designing & Creating Websites',
+    subTitle: 'Apps / Games / Websites ',
     titleIcon1: CodingIcon1,
     titleIcon2: CodingIcon2,
     titleIcon3: CodingIcon3,
@@ -65,6 +69,10 @@ export default [
     titleIcon5: CodingIcon5,
     titleIcon6: CodingIcon6,
     titleIcon7: CodingIcon7,
+    titleIcon8: CodingIcon8,
+    titleIcon9: CodingIcon9,
+    titleIcon10: CodingIcon10,
+    titleIcon11: CodingIcon11,
     titleIconLink1: 'https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/',
     titleIconLink2: 'https://nodejs.org/en/',
     titleIconLink3: 'https://www.mongodb.com/',
@@ -72,6 +80,10 @@ export default [
     titleIconLink5: 'https://threejs.org/',
     titleIconLink6: 'https://www.typescriptlang.org/',
     titleIconLink7: 'https://redux.js.org/',
+    titleIconLink8: 'https://www.figma.com/',
+    titleIconLink9: 'https://kotlinlang.org/',
+    titleIconLink10: 'https://spring.io/projects/spring-boot/',
+    titleIconLink11: 'https://graphql.org/',
     mainFrame:  CodingMainImg ,
   },
 ];

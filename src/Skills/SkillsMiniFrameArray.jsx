@@ -17,6 +17,7 @@ import CodingMobile4 from '../Images/SkillsImg/CodingMobile4.jpg';
 import YoutubeIcon from '../Images/YoutubeIcon.png';
 import ArtstationIcon from '../Images/Artstation.png';
 import DWIcon from '../Images/DWIcon.png';
+import GizAppIcon from '../Images/GizAppIcon.png';
 
 export default [
   [
@@ -65,14 +66,14 @@ export default [
   ],
   [
     {
-      text1: 'Notes App',
-      text2: 'Simple MERN Stack App',
-      text3: '2022',
+      text1: 'GizApp',
+      text2: 'Plan gaming sessions',
+      text3: '2023 - ongoing',
       backgroundImage: Coding3,
       backgroundMobileImage: CodingMobile3,
-      link: 'https://notesdw.up.railway.app/login',
-      linkText: 'View on MernAppJL',
-      linkIcon: DWIcon,
+      link: 'https://gizapp.net',
+      linkText: 'View on GizApp.net',
+      linkIcon: GizAppIcon,
     },
     {
       text1: 'Tic Tac Toe',

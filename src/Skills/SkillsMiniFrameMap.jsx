@@ -62,7 +62,7 @@ export default function SkillsMF({ mainI }) {
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, margin: '50px' }}
-      className="relative  flex  w-full flex-col  items-center gap-[5vw] lg:absolute lg:top-[58vh] lg:right-[7vw] lg:w-max lg:flex-row lg:items-start lg:gap-[2vw] xxl:top-[50vh] xxl:gap-[1vw]"
+      className="relative flex  w-full flex-col  items-center gap-[5vw] lg:absolute lg:top-[500px] lg:right-[7vw] lg:w-max lg:flex-row lg:items-start lg:gap-[2vw] xl:top-[500px] xxl:top-[650px] xxl:gap-[1vw]"
     >
       {mfEl}
     </motion.div>
